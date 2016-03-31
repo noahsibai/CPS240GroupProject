@@ -1,5 +1,4 @@
 package groupProject;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -59,7 +58,7 @@ public class Main extends Application {
 		Bradb.setLayoutY(300);
 		Bradb.setScaleX(3);
 		Bradb.setScaleY(3);
-		Paul = new Button("Story 4");
+		Paul = new Button("Paul: Story 4");
 		Paul.setLayoutX(900);
 		Paul.setLayoutY(300);
 		Paul.setScaleX(3);
@@ -86,6 +85,49 @@ public class Main extends Application {
 		stage.setScene(sc);
 		stage.setMaximized(true);
 		stage.show();
+	}
+
+	public void newRoom(String message, String button1, String button2 ){
+//		Remove everything from the pane
+		pane.getChildren().clear();
+
+//		Creates new "Room" with message and choices
+
+		Text txt = new Text(message);
+		Button butt1 = new Button(button1);
+		Button butt2 = new Button(button2);
+
+		butt1.setScaleX(3);
+		butt1.setScaleY(3);
+		butt1.setLayoutX(250);
+		butt1.setLayoutY(300);
+
+		butt2.setScaleX(3);
+		butt2.setScaleY(3);
+		butt2.setLayoutX(1000);
+		butt2.setLayoutY(300);
+
+		txt.setLayoutX(400);
+		txt.setLayoutY(200);
+		txt.setStyle("-fx-font-size:25;");
+
+		pane.getChildren().addAll(txt,butt1, butt2);
+
+//	FIXME:	Add Tree data structure (Probably in separate class)
+//	FIXME:  Add way to traverse node's on call of function
+
+		butt1.setOnAction((ActionEvent e2) ->{
+			newRoom("You find some poison", "Kill MOM", "Kill Bear");
+//			tree.goToLeftChild (Somehow Move to the left node)
+//	FIXME:		newRoom(tree.node.message, tree.node.choice1, tree.node.choice2);
+		});
+
+		butt2.setOnAction((ActionEvent e2) ->{
+			newRoom("You find some dogs", "Eat nuts", "KILL");
+//	FIXME:		newRoom(tree.node.message, tree.node.choice1, tree.node.choice2);
+
+		});
+
 	}
 
 	public void scoreSheet(int count, String name, String filename) {
@@ -254,6 +296,9 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
+			pane.getChildren().clear();
+
+			newRoom("You got eaten by a Bear", "choice1", "choice2");
 		}
 
 	}
