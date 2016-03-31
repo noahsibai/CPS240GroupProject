@@ -28,9 +28,10 @@ public class Main extends Application {
 	Text startText = null;
 	Button restart = null;
 	Button Noah = null;
-	Button Brad = null;
+	Button Bradb = null;
 	Button Paul = null;
-	Button Zach = null;
+	Button Zack = null;
+	int count = 0;
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -53,29 +54,33 @@ public class Main extends Application {
 		Noah.setLayoutY(300);
 		Noah.setScaleX(3);
 		Noah.setScaleY(3);
-		Brad = new Button("Story 3");
-		Brad.setLayoutX(650);
-		Brad.setLayoutY(300);
-		Brad.setScaleX(3);
-		Brad.setScaleY(3);
+		Bradb = new Button("Story 3");
+		Bradb.setLayoutX(650);
+		Bradb.setLayoutY(300);
+		Bradb.setScaleX(3);
+		Bradb.setScaleY(3);
 		Paul = new Button("Story 4");
 		Paul.setLayoutX(900);
 		Paul.setLayoutY(300);
 		Paul.setScaleX(3);
 		Paul.setScaleY(3);
-		Zach = new Button("Story 5");
-		Zach.setLayoutX(1150);
-		Zach.setLayoutY(300);
-		Zach.setScaleX(3);
-		Zach.setScaleY(3);
+		Zack = new Button("Story 5");
+		Zack.setLayoutX(1150);
+		Zack.setLayoutY(300);
+		Zack.setScaleX(3);
+		Zack.setScaleY(3);
 		Logan logan = new Logan();
 		Logan.setOnAction(logan);
 		Noah noah = new Noah();
 		Noah.setOnAction(noah);
-		//reset res = new reset();
-		//restart.setOnAction(res);
+		Brad brad = new Brad();
+		Bradb.setOnAction(brad);
+		Paul paul = new Paul();
+		Paul.setOnAction(paul);
+		Zack zack = new Zack();
+		Zack.setOnAction(zack);
 
-		pane.getChildren().addAll(restart, startText, Zach, Paul, Brad, Noah, Logan);
+		pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan);
 		Scene sc = new Scene(pane, 400, 400);
 		stage.setTitle("Welcome to the Game");
 		stage.setScene(sc);
@@ -84,6 +89,7 @@ public class Main extends Application {
 	}
 
 	public void scoreSheet(int count, String name, String filename) {
+		// Add on exit
 		File fileName = new File(filename);
 		try (PrintWriter pw = new PrintWriter(new FileWriter(fileName, true));) {
 			pw.write(name + ", " + count + "\n");
@@ -93,11 +99,11 @@ public class Main extends Application {
 	}
 
 	class Logan implements EventHandler<ActionEvent> {
-
 		@Override
 		public void handle(ActionEvent arg0) {
+			count = 0;
 			String filename = "Story1Score.txt";
-			pane.getChildren().removeAll(Logan, Noah, Paul, Brad, Zach, startText);
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
 			Text westText = new Text(
 					"Travel to the West, heading to the unknow lands.\n" + "Keep going or turn around");
 			westText.setLayoutX(400);
@@ -120,7 +126,6 @@ public class Main extends Application {
 			headBack.setOnAction((ActionEvent e2) -> {
 				pane.getChildren().removeAll(headBack, westText);
 				pane.getChildren().add(headBackText);
-
 			});
 			keepGoing.setOnAction((ActionEvent e2) -> {
 				pane.getChildren().removeAll(headBack, keepGoing, westText, headBackText);
@@ -162,12 +167,33 @@ public class Main extends Application {
 					pane.getChildren().addAll(woodsText, yes, no);
 				});
 				town.setOnAction((ActionEvent e3) -> {
-
 				});
 				pane.getChildren().addAll(keepGoingText, woods, town);
 			});
 			pane.getChildren().addAll(headBack, keepGoing, westText);
+		}
+	}
 
+	class Brad implements EventHandler<ActionEvent> {
+
+		@Override
+		public void handle(ActionEvent event) {
+		}
+
+	}
+
+	class Paul implements EventHandler<ActionEvent> {
+
+		@Override
+		public void handle(ActionEvent event) {
+		}
+
+	}
+
+	class Zack implements EventHandler<ActionEvent> {
+
+		@Override
+		public void handle(ActionEvent event) {
 		}
 
 	}
@@ -176,8 +202,9 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
+			count = 0;
 			String filename = "Story2Score.txt";
-			pane.getChildren().removeAll(Logan, Noah, Paul, Brad, Zach, startText);
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
 			Text text = new Text("You have a choice to chose your dream job. \nRace Car Driver or Airplan Pilot");
 			text.setLayoutX(350);
 			text.setLayoutY(200);
@@ -206,7 +233,6 @@ public class Main extends Application {
 				right.setLayoutX(1000);
 				right.setLayoutY(300);
 				left.setOnAction((ActionEvent e3) -> {
-					int count = 1;
 					pane.getChildren().removeAll(raceText, left, right, restart);
 					Text raceDeath = new Text("The Car lands on top of you, \nand you die instantly");
 					Text namePrompt = new Text("Please enter your initials");
@@ -249,7 +275,6 @@ public class Main extends Application {
 					contin.setLayoutX(1000);
 					contin.setLayoutY(300);
 					fix.setOnAction((ActionEvent e6) -> {
-						//
 					});
 					contin.setOnAction((ActionEvent e6) -> {
 						int count = 2;
@@ -305,80 +330,6 @@ public class Main extends Application {
 				pane.getChildren().addAll(land, fly, pilotText);
 			});
 			pane.getChildren().addAll(text, raceCar, pilot);
-
 		}
-		
-		class Brad implements EventHandler<ActionEvent>{
-
-			@Override
-			public void handle(ActionEvent arg0) {
-			}
-			
-		}
-		class Paul implements EventHandler<ActionEvent> {
-
-			@Override
-			public void handle(ActionEvent event) {
-			}
-			
-		}
-		class Zach implements EventHandler<ActionEvent>{
-
-			@Override
-			public void handle(ActionEvent event) {
-			}
-			
-		}
-
 	}
-//	 class reset implements EventHandler<ActionEvent>{
-//	
-//	 @Override
-//	 public void handle(ActionEvent event) {
-//		 startText = new Text("Please Choose a Story Line");
-	// startText.setStyle("-fx-font-size:50;");
-	// startText.setLayoutX(380);
-	// startText.setLayoutY(250);
-	// restart = new Button("Restart");
-	// restart.setLayoutX(650);
-	// restart.setLayoutY(600);
-	// restart.setScaleX(3);
-	// restart.setScaleY(3);
-	// Logan = new Button("Story 1");
-	// Logan.setLayoutX(150);
-	// Logan.setLayoutY(300);
-	// Logan.setScaleX(3);
-	// Logan.setScaleY(3);
-	// Noah = new Button("Story 2");
-	// Noah.setLayoutX(400);
-	// Noah.setLayoutY(300);
-	// Noah.setScaleX(3);
-	// Noah.setScaleY(3);
-	// Brad = new Button("Story 3");
-	// Brad.setLayoutX(650);
-	// Brad.setLayoutY(300);
-	// Brad.setScaleX(3);
-	// Brad.setScaleY(3);
-	// Paul = new Button("Story 4");
-	// Paul.setLayoutX(900);
-	// Paul.setLayoutY(300);
-	// Paul.setScaleX(3);
-	// Paul.setScaleY(3);
-	// Zach = new Button("Story 5");
-	// Zach.setLayoutX(1150);
-	// Zach.setLayoutY(300);
-	// Zach.setScaleX(3);
-	// Zach.setScaleY(3);
-	// Logan logan = new Logan();
-	// Logan.setOnAction(logan);
-	// Noah noah = new Noah();
-	// Noah.setOnAction(noah);
-	//
-	//
-	// pane.getChildren().addAll(restart, startText, Zach, Paul, Brad, Noah,
-	// Logan);
-	// Scene sc = new Scene(pane, 400, 400);
-	// }
-
-	// }
 }
