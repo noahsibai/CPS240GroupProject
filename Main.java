@@ -307,6 +307,28 @@ public class Main extends Application {
 			pane.getChildren().addAll(text, raceCar, pilot);
 
 		}
+		
+		class Brad implements EventHandler<ActionEvent>{
+
+			@Override
+			public void handle(ActionEvent arg0) {
+			}
+			
+		}
+		class Paul implements EventHandler<ActionEvent> {
+
+			@Override
+			public void handle(ActionEvent event) {
+			}
+			
+		}
+		class Zach implements EventHandler<ActionEvent>{
+
+			@Override
+			public void handle(ActionEvent event) {
+			}
+			
+		}
 
 	}
 	 class reset implements EventHandler<ActionEvent>{
