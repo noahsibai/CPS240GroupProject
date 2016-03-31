@@ -72,8 +72,8 @@ public class Main extends Application {
 		Logan.setOnAction(logan);
 		Noah noah = new Noah();
 		Noah.setOnAction(noah);
-		reset res = new reset();
-		restart.setOnAction(res);
+		//reset res = new reset();
+		//restart.setOnAction(res);
 
 		pane.getChildren().addAll(restart, startText, Zach, Paul, Brad, Noah, Logan);
 		Scene sc = new Scene(pane, 400, 400);
@@ -336,48 +336,49 @@ public class Main extends Application {
 //	 @Override
 //	 public void handle(ActionEvent event) {
 //		 startText = new Text("Please Choose a Story Line");
-//			startText.setStyle("-fx-font-size:50;");
-//			startText.setLayoutX(380);
-//			startText.setLayoutY(250);
-//			restart = new Button("Restart");
-//			restart.setLayoutX(650);
-//			restart.setLayoutY(600);
-//			restart.setScaleX(3);
-//			restart.setScaleY(3);
-//			Logan = new Button("Story 1");
-//			Logan.setLayoutX(150);
-//			Logan.setLayoutY(300);
-//			Logan.setScaleX(3);
-//			Logan.setScaleY(3);
-//			Noah = new Button("Story 2");
-//			Noah.setLayoutX(400);
-//			Noah.setLayoutY(300);
-//			Noah.setScaleX(3);
-//			Noah.setScaleY(3);
-//			Brad = new Button("Story 3");
-//			Brad.setLayoutX(650);
-//			Brad.setLayoutY(300);
-//			Brad.setScaleX(3);
-//			Brad.setScaleY(3);
-//			Paul = new Button("Story 4");
-//			Paul.setLayoutX(900);
-//			Paul.setLayoutY(300);
-//			Paul.setScaleX(3);
-//			Paul.setScaleY(3);
-//			Zach = new Button("Story 5");
-//			Zach.setLayoutX(1150);
-//			Zach.setLayoutY(300);
-//			Zach.setScaleX(3);
-//			Zach.setScaleY(3);
-//			Logan logan = new Logan();
-//			Logan.setOnAction(logan);
-//			Noah noah = new Noah();
-//			Noah.setOnAction(noah);
-//
-//		
-//			pane.getChildren().addAll(restart, startText, Zach, Paul, Brad, Noah, Logan);
-//			Scene sc = new Scene(pane, 400, 400);
-//	 }
-	 
-	 }
+	// startText.setStyle("-fx-font-size:50;");
+	// startText.setLayoutX(380);
+	// startText.setLayoutY(250);
+	// restart = new Button("Restart");
+	// restart.setLayoutX(650);
+	// restart.setLayoutY(600);
+	// restart.setScaleX(3);
+	// restart.setScaleY(3);
+	// Logan = new Button("Story 1");
+	// Logan.setLayoutX(150);
+	// Logan.setLayoutY(300);
+	// Logan.setScaleX(3);
+	// Logan.setScaleY(3);
+	// Noah = new Button("Story 2");
+	// Noah.setLayoutX(400);
+	// Noah.setLayoutY(300);
+	// Noah.setScaleX(3);
+	// Noah.setScaleY(3);
+	// Brad = new Button("Story 3");
+	// Brad.setLayoutX(650);
+	// Brad.setLayoutY(300);
+	// Brad.setScaleX(3);
+	// Brad.setScaleY(3);
+	// Paul = new Button("Story 4");
+	// Paul.setLayoutX(900);
+	// Paul.setLayoutY(300);
+	// Paul.setScaleX(3);
+	// Paul.setScaleY(3);
+	// Zach = new Button("Story 5");
+	// Zach.setLayoutX(1150);
+	// Zach.setLayoutY(300);
+	// Zach.setScaleX(3);
+	// Zach.setScaleY(3);
+	// Logan logan = new Logan();
+	// Logan.setOnAction(logan);
+	// Noah noah = new Noah();
+	// Noah.setOnAction(noah);
+	//
+	//
+	// pane.getChildren().addAll(restart, startText, Zach, Paul, Brad, Noah,
+	// Logan);
+	// Scene sc = new Scene(pane, 400, 400);
+	// }
+
+	// }
 }
