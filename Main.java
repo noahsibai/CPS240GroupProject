@@ -1,4 +1,4 @@
-package group;
+package groupProject;
 
 import java.io.File;
 import java.io.FileWriter;
