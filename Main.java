@@ -1,12 +1,8 @@
-/**
- * 
- */
-package group;
+package groupProject;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,20 +14,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * @author Logan
- * @date Mar 31, 2016
- * @project GroupProject
- * @TODO TODO
+ * @author Noah Sibai
+ * @fileName Main.java
+ * @version 1.0
  */
 public class Main extends Application {
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		launch(args);
-
 	}
+
 	Pane pane = new Pane();
 	Button Logan = null;
 	Text startText = null;
@@ -42,9 +33,6 @@ public class Main extends Application {
 	Button Zack = null;
 	int count = 0;
 
-	/* (non-Javadoc)
-	 * @see javafx.application.Application#start(javafx.stage.Stage)
-	 */
 	@Override
 	public void start(Stage stage) throws Exception {
 		startText = new Text("Please Choose a Story Line");
@@ -98,9 +86,10 @@ public class Main extends Application {
 		stage.setScene(sc);
 		stage.setMaximized(true);
 		stage.show();
-		
 	}
+
 	public void scoreSheet(int count, String name, String filename) {
+		// Add on exit
 		File fileName = new File(filename);
 		try (PrintWriter pw = new PrintWriter(new FileWriter(fileName, true));) {
 			pw.write(name + ", " + count + "\n");
@@ -110,149 +99,11 @@ public class Main extends Application {
 	}
 
 	class Logan implements EventHandler<ActionEvent> {
-
 		@Override
 		public void handle(ActionEvent arg0) {
-			String filename = "Story1Score.txt";
-			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
-			Text westText = new Text(
-					"Travel to the West, heading to the unknow lands.\n" + "Keep going or turn around");
-			westText.setLayoutX(400);
-			westText.setLayoutY(200);
-			westText.setStyle("-fx-font-size:25;");
-			Button headBack = new Button("Head Back");
-			Button keepGoing = new Button("Keep Going");
-			headBack.setScaleX(3);
-			headBack.setScaleY(3);
-			headBack.setLayoutX(250);
-			headBack.setLayoutY(300);
-			keepGoing.setScaleX(3);
-			keepGoing.setScaleY(3);
-			keepGoing.setLayoutX(1000);
-			keepGoing.setLayoutY(300);
-			Text headBackText = new Text("The gates to town have closed. There's no going back now!");
-			headBackText.setLayoutX(400);
-			headBackText.setLayoutY(200);
-			headBackText.setStyle("-fx-font-size:25;");
-			headBack.setOnAction((ActionEvent e2) -> {
-				pane.getChildren().removeAll(headBack, westText);
-				pane.getChildren().add(headBackText);
-
-			});
-			keepGoing.setOnAction((ActionEvent e2) -> {
-				pane.getChildren().removeAll(headBack, keepGoing, westText, headBackText);
-				Text keepGoingText = new Text("The clouds suddenly get dark,"
-						+ "\ncovering the sun and setting an\neerie darkness over the land"
-						+ "\nIt looks like it's going to start raining\nDo you head to the woods that are in sight\n"
-						+ "or continue along the road to the right\nto search for another town?");
-				keepGoingText.setLayoutX(425);
-				keepGoingText.setLayoutY(50);
-				keepGoingText.setStyle("-fx-font-size:25;");
-				Button woods = new Button("Woods");
-				Button town = new Button("Town");
-				woods.setScaleX(3);
-				woods.setScaleY(3);
-				woods.setLayoutX(250);
-				woods.setLayoutY(300);
-				town.setScaleX(3);
-				town.setScaleY(3);
-				town.setLayoutX(1000);
-				town.setLayoutY(300);
-				woods.setOnAction((ActionEvent e3) -> {
-					pane.getChildren().removeAll(town, woods, keepGoingText);
-					Text woodsText = new Text("The woods provide coverage from the rain,"
-							+ "\nbut who knows what is in these woods." + "\nIt's dark and eerie, the wind is blowing."
-							+ "\nYou have a flashlight in your backpack.\nDo you want to use it?");
-					woodsText.setLayoutX(425);
-					woodsText.setLayoutY(50);
-					woodsText.setStyle("-fx-font-size:25;");
-					Button yes = new Button("Yes");
-					Button no = new Button("No");
-					yes.setScaleX(3);
-					yes.setScaleY(3);
-					yes.setLayoutX(250);
-					yes.setLayoutY(300);
-					no.setScaleX(3);
-					no.setScaleY(3);
-					no.setLayoutX(1000);
-					no.setLayoutY(300);
-					pane.getChildren().addAll(woodsText, yes, no);
-				});
-				town.setOnAction((ActionEvent e3) -> {
-					pane.getChildren().removeAll(town, woods, keepGoingText);
-					Text townText = new Text("As you travel the rain begins to "+
-							"\ncome down harder.  Soaked and covered in wet clothes, you "+
-							"\napproach a town, but it looks abandoned...");
-					townText.setLayoutX(425);
-					townText.setLayoutY(50);
-					townText.setStyle("-fx-font-size:25;");
-					Button next1 = new Button("Next");
-					next1.setScaleX(3);
-					next1.setScaleY(3);
-					next1.setLayoutX(1000);
-					next1.setLayoutY(300);
-					pane.getChildren().addAll(townText, next1);
-					
-					next1.setOnAction((ActionEvent e4) -> {
-						pane.getChildren().removeAll(next1, townText);
-						Text building = new Text("At the front of the town is the large "
-								+"\ntown hall building.  The writing on the wall says 'DO NOT ENTER' "
-								+"\nand it looks like it is written in blood...");
-						building.setLayoutX(425);
-						building.setLayoutY(50);
-						building.setStyle("-fx-font-size:25;");
-						Button goIn = new Button("Go in building");
-						Button lookAround = new Button("Look around town");
-						goIn.setScaleX(3);
-						goIn.setScaleY(3);
-						goIn.setLayoutX(250);
-						goIn.setLayoutY(300);
-						lookAround.setScaleX(3);
-						lookAround.setScaleY(3);
-						lookAround.setLayoutX(1000);
-						lookAround.setLayoutY(300);
-						pane.getChildren().addAll(building, goIn, lookAround);
-						
-						lookAround.setOnAction((ActionEvent e5) -> {
-							int count = 1;
-							pane.getChildren().removeAll(building, goIn, lookAround);
-							Text lookText = new Text("As you are walking you step on a wire.  You hear a click from far off and a gunshot."
-									+ "\nThe wire was a trip-wire connected to a rigged rifle.  You stepping on the wire "
-									+ "\npulled the trigger, firing the gun aimed towards you, hitting you in the chest, making everything go black...");
-							Text namePrompt = new Text("Please enter your initials");
-							namePrompt.setLayoutX(600);
-							namePrompt.setLayoutY(350);
-							TextField scoreText = new TextField();
-							scoreText.setLayoutX(600);
-							scoreText.setLayoutY(400);
-							Button exit = new Button("Exit");
-							exit.setScaleX(3);
-							exit.setScaleY(3);
-							exit.setLayoutX(650);
-							exit.setLayoutY(480);
-							lookText.setLayoutX(350);
-							lookText.setLayoutY(200);
-							lookText.setStyle("-fx-font-size:25;");
-							pane.getChildren().addAll(namePrompt, scoreText, lookText, exit);
-							exit.setOnAction((ActionEvent e6) -> {
-								String name = scoreText.getText();
-								scoreSheet(count, name, filename);
-								System.exit(0);
-							});
-						
-							
-						});
-						
-					});
-
-				});
-				pane.getChildren().addAll(keepGoingText, woods, town);
-			});
-			pane.getChildren().addAll(headBack, keepGoing, westText);
-
 		}
 	}
-	
+
 	class Brad implements EventHandler<ActionEvent> {
 
 		@Override
@@ -411,5 +262,4 @@ public class Main extends Application {
 			pane.getChildren().addAll(text, raceCar, pilot);
 		}
 	}
-
 }
