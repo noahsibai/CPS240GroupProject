@@ -171,6 +171,40 @@ public class Main extends Application {
 						pane.getChildren().removeAll(woodsText, yes, no);
 						Text cabin = new Text("Looking around, you find a small cabin in the woods."
 								+ "\nThere aren't any lights on and one of the windows are smashed in.");
+						cabin.setLayoutX(425);
+						cabin.setLayoutY(50);
+						cabin.setStyle("-fx-font-size:25;");
+						Button house = new Button("Go up to house");
+						Button leave = new Button("Keep walking to the exit");
+						house.setScaleX(3);
+						house.setScaleY(3);
+						house.setLayoutX(250);
+						house.setLayoutY(300);
+						leave.setScaleX(3);
+						leave.setScaleY(3);
+						leave.setLayoutX(1000);
+						leave.setLayoutY(300);
+						pane.getChildren().addAll(cabin, house, leave);
+						
+						house.setOnAction((ActionEvent e19) -> {
+							pane.getChildren().removeAll(cabin, house, leave);
+							Text houseText = new Text("You walk up to the house, the door is unlocked, "
+									+ "\nand the breeze blows it open. You hear a scream from inside!");
+							houseText.setLayoutX(425);
+							houseText.setLayoutY(50);
+							houseText.setStyle("-fx-font-size:25;");
+							Button help = new Button("Help the person!");
+							Button run = new Button("Creepy! Run to the exit");
+							help.setScaleX(3);
+							help.setScaleY(3);
+							help.setLayoutX(250);
+							help.setLayoutY(300);
+							run.setScaleX(3);
+							run.setScaleY(3);
+							run.setLayoutX(1000);
+							run.setLayoutY(300);
+							pane.getChildren().addAll(houseText, help, run);
+						});
 						
 					});
 					
@@ -197,7 +231,7 @@ public class Main extends Application {
 							pane.getChildren().removeAll(path, walk, look, restart);
 							Text eated = new Text("You hear the noise getting closer and louder!"
 									+ "\nYou turn around and see a giant silhouette towering over you!"
-									+ "\nThe creature mauls you, leaving you to die in the woods.");
+									+ "\nThe creature mauls you, leaving you to die in the woods...");
 							eated.setLayoutX(425);
 							eated.setLayoutY(50);
 							eated.setStyle("-fx-font-size:25;");
@@ -238,10 +272,26 @@ public class Main extends Application {
 							crouch.setLayoutY(300);
 							pane.getChildren().addAll(creature, run, crouch);
 							
+							crouch.setOnAction((ActionEvent e18) -> {
+								pane.getChildren().removeAll(creature, run, crouch);
+								Text bushes = new Text("The beast walks off.  You wait a little longer to be sure,"
+										+ "\nand continue off into the woods, searching for a safe place.");
+								bushes.setLayoutX(425);
+								bushes.setLayoutY(50);
+								bushes.setStyle("-fx-font-size:25;");
+								Button next = new Button("Next");
+								next.setScaleX(3);
+								next.setScaleY(3);
+								next.setLayoutX(1000);
+								next.setLayoutY(300);
+								pane.getChildren().addAll(bushes, next);
+								
+							});
+							
 							run.setOnAction((ActionEvent e15) -> {
 								pane.getChildren().removeAll(creature, run, crouch, restart);
 								Text maul = new Text("The beast hears you!  It chases you down and you aren't fast enough."
-										+ "\nThe creature mauls you, leaving you to die in the woods.");
+										+ "\nThe creature mauls you, leaving you to die in the woods...");
 								maul.setLayoutX(425);
 								maul.setLayoutY(50);
 								maul.setStyle("-fx-font-size:25;");
