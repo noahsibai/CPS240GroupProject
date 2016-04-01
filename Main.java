@@ -166,6 +166,110 @@ public class Main extends Application {
 					no.setLayoutX(1000);
 					no.setLayoutY(300);
 					pane.getChildren().addAll(woodsText, yes, no);
+					
+					yes.setOnAction((ActionEvent e16) -> {
+						pane.getChildren().removeAll(woodsText, yes, no);
+						Text cabin = new Text("Looking around, you find a small cabin in the woods."
+								+ "\nThere aren't any lights on and one of the windows are smashed in.");
+						
+					});
+					
+					no.setOnAction((ActionEvent e13) -> {
+						pane.getChildren().removeAll(woodsText, yes, no);
+						Text path = new Text("Walking through the woods, the path starts to become unclear."
+								+ "\nYou hear rustling in the bushes behind you.");
+						path.setLayoutX(425);
+						path.setLayoutY(50);
+						path.setStyle("-fx-font-size:25;");
+						Button walk = new Button("Keep walking");
+						Button look = new Button("Look for it!");
+						walk.setScaleX(3);
+						walk.setScaleY(3);
+						walk.setLayoutX(250);
+						walk.setLayoutY(300);
+						look.setScaleX(3);
+						look.setScaleY(3);
+						look.setLayoutX(1000);
+						look.setLayoutY(300);
+						pane.getChildren().addAll(path, walk, look);
+						
+						walk.setOnAction((ActionEvent e17) -> {
+							pane.getChildren().removeAll(path, walk, look, restart);
+							Text eated = new Text("You hear the noise getting closer and louder!"
+									+ "\nYou turn around and see a giant silhouette towering over you!"
+									+ "\nThe creature mauls you, leaving you to die in the woods.");
+							eated.setLayoutX(425);
+							eated.setLayoutY(50);
+							eated.setStyle("-fx-font-size:25;");
+							Text namePrompt = new Text("Please enter your initials");
+							namePrompt.setLayoutX(600);
+							namePrompt.setLayoutY(350);
+							TextField scoreText = new TextField();
+							scoreText.setLayoutX(600);
+							scoreText.setLayoutY(400);
+							Button exit = new Button("Exit");
+							exit.setScaleX(3);
+							exit.setScaleY(3);
+							exit.setLayoutX(650);
+							exit.setLayoutY(600);
+							pane.getChildren().addAll(namePrompt, scoreText, eated, exit);
+							exit.setOnAction((ActionEvent e6) -> {
+								String name = scoreText.getText();
+								scoreSheet(count, name, filename);
+								System.exit(0);
+							});
+						});
+						
+						look.setOnAction((ActionEvent e14) -> {
+							pane.getChildren().removeAll(path, walk, look);
+							Text creature = new Text("You see a silhouette of a large furry creature walking behind some nearby trees.");
+							creature.setLayoutX(425);
+							creature.setLayoutY(50);
+							creature.setStyle("-fx-font-size:25;");
+							Button run = new Button("Turn and run!");
+							Button crouch = new Button("Crouch in bushes and wait");
+							run.setScaleX(3);
+							run.setScaleY(3);
+							run.setLayoutX(250);
+							run.setLayoutY(300);
+							crouch.setScaleX(3);
+							crouch.setScaleY(3);
+							crouch.setLayoutX(1000);
+							crouch.setLayoutY(300);
+							pane.getChildren().addAll(creature, run, crouch);
+							
+							run.setOnAction((ActionEvent e15) -> {
+								pane.getChildren().removeAll(creature, run, crouch, restart);
+								Text maul = new Text("The beast hears you!  It chases you down and you aren't fast enough."
+										+ "\nThe creature mauls you, leaving you to die in the woods.");
+								maul.setLayoutX(425);
+								maul.setLayoutY(50);
+								maul.setStyle("-fx-font-size:25;");
+								Text namePrompt = new Text("Please enter your initials");
+								namePrompt.setLayoutX(600);
+								namePrompt.setLayoutY(350);
+								TextField scoreText = new TextField();
+								scoreText.setLayoutX(600);
+								scoreText.setLayoutY(400);
+								Button exit = new Button("Exit");
+								exit.setScaleX(3);
+								exit.setScaleY(3);
+								exit.setLayoutX(650);
+								exit.setLayoutY(600);
+								pane.getChildren().addAll(namePrompt, scoreText, maul, exit);
+								exit.setOnAction((ActionEvent e6) -> {
+									String name = scoreText.getText();
+									scoreSheet(count, name, filename);
+									System.exit(0);
+								});
+								
+								
+							});
+							
+						});
+						
+						
+					});
 				});
 				town.setOnAction((ActionEvent e3) -> {
 					pane.getChildren().removeAll(town, woods, keepGoingText);
@@ -201,12 +305,143 @@ public class Main extends Application {
 						lookAround.setLayoutX(1000);
 						lookAround.setLayoutY(300);
 						pane.getChildren().addAll(building, goIn, lookAround);
+						
+						goIn.setOnAction((ActionEvent e7) -> {
+							pane.getChildren().removeAll(building, goIn, lookAround);
+							Text inBuilding = new Text("The doors on the building are heavy, but you are able to push them open."
+									+ "\nIt is dark inside, and you hear a muffled noise that sounds like groaning...");
+							inBuilding.setLayoutX(425);
+							inBuilding.setLayoutY(50);
+							inBuilding.setStyle("-fx-font-size:25;");
+							Button find = new Button("Find the noise");
+							Button run = new Button("Run out! Too creepy!");
+							find.setScaleX(3);
+							find.setScaleY(3);
+							find.setLayoutX(250);
+							find.setLayoutY(300);
+							run.setScaleX(3);
+							run.setScaleY(3);
+							run.setLayoutX(1000);
+							run.setLayoutY(300);
+							pane.getChildren().addAll(inBuilding, find, run);
+							
+							find.setOnAction((ActionEvent e10) -> {
+								pane.getChildren().removeAll(inBuilding, find, run);
+								Text room = new Text("You find the room where the noise is coming from."
+										+ "\nThe sound is louder and something is bumping against the doors.");
+								room.setLayoutX(425);
+								room.setLayoutY(50);
+								room.setStyle("-fx-font-size:25;");
+								Button open = new Button("Open the doors");
+								Button run2 = new Button("Screw that! Run out!");
+								open.setScaleX(3);
+								open.setScaleY(3);
+								open.setLayoutX(250);
+								open.setLayoutY(300);
+								run2.setScaleX(3);
+								run2.setScaleY(3);
+								run2.setLayoutX(1000);
+								run2.setLayoutY(300);
+								pane.getChildren().addAll(room, open, run2);
+								
+								open.setOnAction((ActionEvent e12) -> {
+									int count = 1;
+									pane.getChildren().removeAll(room, open, run2, restart);
+									Text eaten = new Text("You open the doors and a horde of the undead come spilling out of the room!"
+											+ "\nThey swarm you, eating you alive...");
+									Text namePrompt = new Text("Please enter your initials");
+									namePrompt.setLayoutX(600);
+									namePrompt.setLayoutY(350);
+									TextField scoreText = new TextField();
+									scoreText.setLayoutX(600);
+									scoreText.setLayoutY(400);
+									Button exit = new Button("Exit");
+									exit.setScaleX(3);
+									exit.setScaleY(3);
+									exit.setLayoutX(650);
+									exit.setLayoutY(600);
+									eaten.setLayoutX(350);
+									eaten.setLayoutY(200);
+									eaten.setStyle("-fx-font-size:25;");
+									pane.getChildren().addAll(namePrompt, scoreText, eaten, exit);
+									exit.setOnAction((ActionEvent e6) -> {
+										String name = scoreText.getText();
+										scoreSheet(count, name, filename);
+										System.exit(0);
+									});
+									
+								});
+								
+								run2.setOnAction((ActionEvent e11) -> {
+									int count = 1;
+									pane.getChildren().removeAll(room, open, run2, restart);
+									Text lookText = new Text(
+											"As you are walking through the town you step on a wire.  You hear a click from far off and a gunshot."
+													+ "\nThe wire was a trip-wire connected to a rigged rifle.  You stepping on the wire "
+													+ "\npulled the trigger, firing the gun aimed towards you, hitting you in the chest, making everything go black...");
+									Text namePrompt = new Text("Please enter your initials");
+									namePrompt.setLayoutX(600);
+									namePrompt.setLayoutY(350);
+									TextField scoreText = new TextField();
+									scoreText.setLayoutX(600);
+									scoreText.setLayoutY(400);
+									Button exit = new Button("Exit");
+									exit.setScaleX(3);
+									exit.setScaleY(3);
+									exit.setLayoutX(650);
+									exit.setLayoutY(600);
+									lookText.setLayoutX(350);
+									lookText.setLayoutY(200);
+									lookText.setStyle("-fx-font-size:25;");
+									pane.getChildren().addAll(namePrompt, scoreText, lookText, exit);
+									exit.setOnAction((ActionEvent e6) -> {
+										String name = scoreText.getText();
+										scoreSheet(count, name, filename);
+										System.exit(0);
+									});
+									
+								});
+								
+							});
+							
+							run.setOnAction((ActionEvent e9) -> {
+								int count = 1;
+								pane.getChildren().removeAll(inBuilding, find, run, restart);
+								Text lookText = new Text(
+										"As you are walking through the town you step on a wire.  You hear a click from far off and a gunshot."
+												+ "\nThe wire was a trip-wire connected to a rigged rifle.  You stepping on the wire "
+												+ "\npulled the trigger, firing the gun aimed towards you, hitting you in the chest, making everything go black...");
+								Text namePrompt = new Text("Please enter your initials");
+								namePrompt.setLayoutX(600);
+								namePrompt.setLayoutY(350);
+								TextField scoreText = new TextField();
+								scoreText.setLayoutX(600);
+								scoreText.setLayoutY(400);
+								Button exit = new Button("Exit");
+								exit.setScaleX(3);
+								exit.setScaleY(3);
+								exit.setLayoutX(650);
+								exit.setLayoutY(600);
+								lookText.setLayoutX(350);
+								lookText.setLayoutY(200);
+								lookText.setStyle("-fx-font-size:25;");
+								pane.getChildren().addAll(namePrompt, scoreText, lookText, exit);
+								exit.setOnAction((ActionEvent e6) -> {
+									String name = scoreText.getText();
+									scoreSheet(count, name, filename);
+									System.exit(0);
+								});
+								
+							});
+							
+							
+						});
 
 						lookAround.setOnAction((ActionEvent e5) -> {
 							int count = 1;
 							pane.getChildren().removeAll(building, goIn, lookAround, restart);
 							Text lookText = new Text(
-									"As you are walking you step on a wire.  You hear a click from far off and a gunshot."
+									"As you are walking through the town you step on a wire.  You hear a click from far off and a gunshot."
 											+ "\nThe wire was a trip-wire connected to a rigged rifle.  You stepping on the wire "
 											+ "\npulled the trigger, firing the gun aimed towards you, hitting you in the chest, making everything go black...");
 							Text namePrompt = new Text("Please enter your initials");
