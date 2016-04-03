@@ -98,6 +98,46 @@ public class Main extends Application {
 		}
 	}
 
+	public void newRoom(String message, String buttonL, String buttonR, Tree tree, String pos){
+
+	Node n = tree.get(pos);
+//		Remove everything from the pane
+	pane.getChildren().clear();
+
+//		Creates new "Room" with message and choices
+	Text txt = new Text(message);
+	Button buttR = new Button(buttonR);  // right choice
+	Button buttL = new Button(buttonL);  // left Choice
+
+	buttL.setScaleX(3);
+	buttL.setScaleY(3);
+	buttL.setLayoutX(250);
+	buttL.setLayoutY(300);
+
+	buttR.setScaleX(3);
+	buttR.setScaleY(3);
+	buttR.setLayoutX(1000);
+	buttR.setLayoutY(300);
+
+	txt.setLayoutX(400);
+	txt.setLayoutY(200);
+	txt.setStyle("-fx-font-size:25;");
+
+	pane.getChildren().addAll(txt,buttR, buttL);
+	buttR.setOnAction((ActionEvent e1) ->{
+		//Go Right
+		Node r = tree.get(pos + 'r');
+		newRoom(r.message, r.choiceR, r.choiceL, tree, r.pos);
+	});
+
+	buttL.setOnAction((ActionEvent e2) ->{
+		// Go Left
+		Node l = tree.get(pos + 'l');
+		newRoom(l.message, l.choiceR, l.choiceL, tree, l.pos);
+	});
+
+}
+
 	class Logan implements EventHandler<ActionEvent> {
 
 		@Override
@@ -166,7 +206,7 @@ public class Main extends Application {
 					no.setLayoutX(1000);
 					no.setLayoutY(300);
 					pane.getChildren().addAll(woodsText, yes, no);
-					
+
 					yes.setOnAction((ActionEvent e16) -> {
 						pane.getChildren().removeAll(woodsText, yes, no);
 						Text cabin = new Text("Looking around, you find a small cabin in the woods."
@@ -185,7 +225,7 @@ public class Main extends Application {
 						leave.setLayoutX(1000);
 						leave.setLayoutY(300);
 						pane.getChildren().addAll(cabin, house, leave);
-						
+
 						house.setOnAction((ActionEvent e19) -> {
 							pane.getChildren().removeAll(cabin, house, leave);
 							Text houseText = new Text("You walk up to the house, the door is unlocked, "
@@ -205,9 +245,9 @@ public class Main extends Application {
 							run.setLayoutY(300);
 							pane.getChildren().addAll(houseText, help, run);
 						});
-						
+
 					});
-					
+
 					no.setOnAction((ActionEvent e13) -> {
 						pane.getChildren().removeAll(woodsText, yes, no);
 						Text path = new Text("Walking through the woods, the path starts to become unclear."
@@ -226,7 +266,7 @@ public class Main extends Application {
 						look.setLayoutX(1000);
 						look.setLayoutY(300);
 						pane.getChildren().addAll(path, walk, look);
-						
+
 						walk.setOnAction((ActionEvent e17) -> {
 							pane.getChildren().removeAll(path, walk, look, restart);
 							Text eated = new Text("You hear the noise getting closer and louder!"
@@ -253,7 +293,7 @@ public class Main extends Application {
 								System.exit(0);
 							});
 						});
-						
+
 						look.setOnAction((ActionEvent e14) -> {
 							pane.getChildren().removeAll(path, walk, look);
 							Text creature = new Text("You see a silhouette of a large furry creature walking behind some nearby trees.");
@@ -271,7 +311,7 @@ public class Main extends Application {
 							crouch.setLayoutX(1000);
 							crouch.setLayoutY(300);
 							pane.getChildren().addAll(creature, run, crouch);
-							
+
 							crouch.setOnAction((ActionEvent e18) -> {
 								pane.getChildren().removeAll(creature, run, crouch);
 								Text bushes = new Text("The beast walks off.  You wait a little longer to be sure,"
@@ -285,9 +325,9 @@ public class Main extends Application {
 								next.setLayoutX(1000);
 								next.setLayoutY(300);
 								pane.getChildren().addAll(bushes, next);
-								
+
 							});
-							
+
 							run.setOnAction((ActionEvent e15) -> {
 								pane.getChildren().removeAll(creature, run, crouch, restart);
 								Text maul = new Text("The beast hears you!  It chases you down and you aren't fast enough."
@@ -312,13 +352,13 @@ public class Main extends Application {
 									scoreSheet(count, name, filename);
 									System.exit(0);
 								});
-								
-								
+
+
 							});
-							
+
 						});
-						
-						
+
+
 					});
 				});
 				town.setOnAction((ActionEvent e3) -> {
@@ -355,7 +395,7 @@ public class Main extends Application {
 						lookAround.setLayoutX(1000);
 						lookAround.setLayoutY(300);
 						pane.getChildren().addAll(building, goIn, lookAround);
-						
+
 						goIn.setOnAction((ActionEvent e7) -> {
 							pane.getChildren().removeAll(building, goIn, lookAround);
 							Text inBuilding = new Text("The doors on the building are heavy, but you are able to push them open."
@@ -374,7 +414,7 @@ public class Main extends Application {
 							run.setLayoutX(1000);
 							run.setLayoutY(300);
 							pane.getChildren().addAll(inBuilding, find, run);
-							
+
 							find.setOnAction((ActionEvent e10) -> {
 								pane.getChildren().removeAll(inBuilding, find, run);
 								Text room = new Text("You find the room where the noise is coming from."
@@ -393,7 +433,7 @@ public class Main extends Application {
 								run2.setLayoutX(1000);
 								run2.setLayoutY(300);
 								pane.getChildren().addAll(room, open, run2);
-								
+
 								open.setOnAction((ActionEvent e12) -> {
 									int count = 1;
 									pane.getChildren().removeAll(room, open, run2, restart);
@@ -419,9 +459,9 @@ public class Main extends Application {
 										scoreSheet(count, name, filename);
 										System.exit(0);
 									});
-									
+
 								});
-								
+
 								run2.setOnAction((ActionEvent e11) -> {
 									int count = 1;
 									pane.getChildren().removeAll(room, open, run2, restart);
@@ -449,11 +489,11 @@ public class Main extends Application {
 										scoreSheet(count, name, filename);
 										System.exit(0);
 									});
-									
+
 								});
-								
+
 							});
-							
+
 							run.setOnAction((ActionEvent e9) -> {
 								int count = 1;
 								pane.getChildren().removeAll(inBuilding, find, run, restart);
@@ -481,10 +521,10 @@ public class Main extends Application {
 									scoreSheet(count, name, filename);
 									System.exit(0);
 								});
-								
+
 							});
-							
-							
+
+
 						});
 
 						lookAround.setOnAction((ActionEvent e5) -> {
@@ -539,6 +579,21 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
+
+			Tree pj = new Tree("Travel to the West, heading to the unknow lands.", "Left", "Right", "");
+			pj.add("r",  "left" , "right", "r");
+			System.out.println("Sending l ");
+			pj.add("more stuff  l", "left ", "right", "l");
+			System.out.println("Sending rl ");
+			pj.add("shit rl", "left ", "right ", "rl");
+
+			pj.add("thingy thing thing rll ", "left ", "right ", "rll");
+			pj.add("shi rlr ", "left ", "right ", "rlr");
+
+			pane.getChildren().removeAll(Logan, Noah, Paul, Brad, Zach, startText);
+
+			newRoom("You got eaten by a Bear", "choiceL", "choiceR", pj, "" );
+
 		}
 
 	}
