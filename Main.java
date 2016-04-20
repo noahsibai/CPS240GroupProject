@@ -21,14 +21,13 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
- * @author Noah Sibai
+ * @author Noah Sibai, Logan Greer, Paul Lamine, Bradley Davis, Zachary C.
  * @fileName Main.java
  * @version 1.0
  */
 public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
-
 	}
 
 	Pane pane = new Pane();
@@ -45,7 +44,6 @@ public class Main extends Application {
 	TextField scoreText = new TextField();
 	int count = 0;
 	Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-	MenuBar bar = new MenuBar();
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -205,404 +203,665 @@ public class Main extends Application {
 			filename = "Story1Score.txt";
 			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
 			Tree l = new Tree("Travel to the West, heading to the unknown lands", "Turn around", "Keep Going", "");
-			
-//right branch
-			l.add("The gates to the town have closed.  There's no going back now.", null, "Keep Going", "r");
-			l.add("As you are walking away from the town, a small group of zombies come out of the woods!\nThe town you came from open fire, and a stray bullet hits you, leaving you as zombie bait...", null, null, "rr");
-			l.add("The clouds suddenly get dark, covering the sun \nand setting an eerie darkness over the land. \nIt looks like it's going to rain.", "Head to the woods", "Continue on the road looking for a town", "l");
-	//Town story
-			l.add("As you travel the rain begins to come down harder.  Soaked and covered in wet clothes, \nyou approach a town, but it looks abandoned...", null, "Next", "lr");
-			
-			l.add("At the front of the town is the large town hall building.  \nThe writing on the wall says DO NOT ENTER and it looks like it is written in blood...", "Go in the building", "Look around town", "lrr");
-			l.add("The doors on the building are heavy, but you are able to push them open.\nIt is dark inside, and you hear a muffled noise that sounds like groaning...", "Run out!", "Look for the noise", "lrrl");
-			l.add("As you are walking you step on a wire...You hear a click from far off and a gunshot...", "Next", null, "lrrll");
-			l.add("The wire was a trip-wire connected to a rigged rifle.  You stepping on the wire pulled the trigger, \nfiring the gun aimed towards you, hitting you in the chest, making everything go black...", null, null, "lrrlll");
-			
-			l.add("You find the room where the noise is coming from.  \nThe sound is louder and something is bumping against the doors.", "Open up the doors", "Run out of the building!", "lrrlr");
-			l.add("As you are walking you step on a wire...You hear a click from far off and a gunshot...", null, "Next", "lrrlrr");
-			l.add("The wire was a trip-wire connected to a rigged rifle.  You stepping on the wire pulled the trigger, \nfiring the gun aimed towards you, hitting you in the chest, making everything go black...", null, null, "lrrlrrr");
-			
-			l.add("You open the doors and a horde of the undead come spilling out of the room!\nThey swarm you, eating you alive...", null, null, "lrrlrl");
-			l.add("As you are walking you step on a wire...You hear a click from far off and a gunshot...", null, "Next", "lrrr");
-			l.add("The wire was a trip-wire connected to a rigged rifle.  You stepping on the wire pulled the trigger, \nfiring the gun aimed towards you, hitting you in the chest, making everything go black...", null, null, "lrrrr");
-			
-//left branch
-			l.add("The woods provide coverage from the rain, but who knows what is in these woods.\nIt's dark and eerie, the wind is blowing.  You have a flashlight in your backpack.  Do you want to use it?", "Yes, use it", "No, don't need it", "ll");
-	//Cabin story
-			l.add("Looking around, you find a small cabin in the woods.\nThere aren't any lights on and one of the windows are smashed in.", "Go up to the house", "Head to the exit", "lll");
-			
-		//Go up to the house
-			l.add("You hear a scream from inside the house!", "Help the person who screamed!", "Turn and run!", "llll");
-			
-			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs", "Look in the basement", "lllll");
-		//Basement
-			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Get out of this creepy house!", "Check on the figure", "lllllr");
-			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next", "lllllrr");
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllllrrr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllllrrrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllllrrrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllllrrrrll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllllrrrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllllrrrrrr");
-		//Get out of basement
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", "Next", null, "lllllrl");
-			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!", "lllllrll");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", null, "Next", "lllllrllr");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllllrllrr");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null, "lllllrlll");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllllrllll");
-		
-			
-		//Upstairs
-			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement", "This seems sketchy! Leave the house!", "llllll");
-			
-		//Leave the house
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllllr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllllrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllllrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllllrrll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllllrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllllrrrr");
-			
-		//Upstairs to basement
-			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "lllllll");
-			
-		//Get out of the house
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllllllr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllllllrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllllllrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllllllrrll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllllllrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllllllrrrr");
-			
-		//Done with "Go up to house"
-			
-		//"Head to the exit"
-		//Don't go in the cabin
-			l.add("You are almost to the exit of the woods, when you suddenly hear a scream, \ncoming from the eerie cabin from before.", "Run back to the cabin and help!", "Screw who that was. Not my problem", "lllr");
-			
-		//Back to cabin
-			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look in the basement", "Look upstairs", "lllrl");
-		//Basement
-			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Get out of this creepy house!", "Check on the figure", "lllrll");
-			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next", "lllrllr");
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrllrr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrllrrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrllrrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrllrrrll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrllrrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrllrrrrr");
-		//Get out of basement
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", "Next", null, "lllrlll");
-			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!", "lllrllll");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", null, "Next", "lllrllllr");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrllllrr");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null, "lllrlllll");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrllllll");
-		
-			
-		//Upstairs
-			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement", "This seems sketchy! Leave the house!", "lllrlr");
-			
-		//Leave the house - Upstairs
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrlrr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrlrrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrlrrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrlrrrll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrlrrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrlrrrrr");
-			
-		//Upstairs to basement
-			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "lllrlrl");
-			
-		//Get out of the house
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrlrlr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrlrlrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrlrlrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrlrlrrll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrlrlrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrlrlrrrr");
-			
-			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next", "lllrlrll");
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrlrllr");
-			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!", "lllrlrllrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", null, "Next", "lllrlrllrrr");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrlrllrrrr");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null, "lllrlrllrrl");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrlrllrrll");
-		//Done with "Head to the exit"
-			
-			
-		//Turn and run
-			l.add("Upon exiting the woods, you are tackled to the ground!  A woman is on top of you screaming about helping her friend!\nShe holds you at knife-point and asks if you heard the scream.", "Admit to hearing the scream", "Lie saying you didn't hear the scream", "llllr");
-			
-			//Lie
-			l.add("She calls you a liar!  She stands you up and leads you back in to the woods with the knife at your back.\nNow you have to go into the cabin.", null, "Next", "llllrr");
-			l.add("You walk forward into the dark hallway, feeling the wall as you go so you don't trip.\nYou pause... You don't hear the woman behind you.  You turn around and she isn't there anymore...", "Go to the back door! Get out!", "Look for the woman", "llllrrr");
-			
-			//Look for the woman
-			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs", "Look in the basement", "llllrrrr");
-			//basement - look
-		l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "llllrrrrr");
-			//get out of basement - look
-		l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrrrrrr");
-		l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrrrrrrr");
-		l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrrrrrrrr");
-		l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrrrrrrrrr");
-		l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrrrrrrrl");
-		l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrrrrrrrll");
-			//check figure
-		l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next", "llllrrrrrl");
-		l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrrrrrlr");
-		l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrrrrrlrr");
-		l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrrrrrlrrr");
-		l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrrrrrlrrrr");
-		l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrrrrrlrrl");
-		l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrrrrrlrrll");
-		
-			//upstairs - look
-		l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement", "This seems sketchy! Leave the house!", "llllrrrrl");
-			//get out of house - upstairs
-		l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrrrrlr");
-		l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrrrrlrr");
-		l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrrrrlrrr");
-		l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrrrrlrrrr");
-		l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrrrrlrrl");
-		l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrrrrlrrll");
-		
-			//upstairs to basement
-		l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "llllrrrrll");
-			//get out of basement after upstairs
-		l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrrrrllr");
-		l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrrrrllrr");
-		l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrrrrllrrr");
-		l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrrrrllrrrr");
-		l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrrrrllrrl");
-		l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrrrrllrrll");
-			//check figure
-		l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next", "llllrrrrlll");
-		l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrrrrlllr");
-		l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrrrrlllrr");
-		l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrrrrlllrrr");
-		l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrrrrlllrrrr");
-		l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrrrrlllrrl");
-		l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrrrrlllrrll");
-			
-			//Lie - Get out of the house
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", "Next", null, "llllrrrl");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrrrll");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrrrlll");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrrrllll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrrrllr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrrrllrr");
-			
-			//Truth
-			l.add("She tells you that you have to help her go find her friend.  \nShe stands you up and leads you back in to the woods with the knife at your back.  You are forced to go into the cabin.", "Next", null, "llllrl");
-			l.add("You walk forward into the dark hallway, feeling the wall as you go so you don't trip.\nYou pause... You don't hear the woman behind you.  You turn around and she isn't there anymore...", "Go to the back door! Get out!", "Look for the woman", "llllrll");
-			
-			//Look for the woman
-			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs", "Look in the basement", "llllrllr");
-				//basement - look
-			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "llllrllrr");
-				//get out of basement - look
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrllrrr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrllrrrr");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrllrrrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrllrrrrrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrllrrrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrllrrrrll");
-				//check figure
-			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next", "llllrllrrl");
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrllrrlr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrllrrlrr");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrllrrlrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrllrrlrrrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrllrrlrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrllrrlrrll");
-			
-				//upstairs - look
-			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement", "This seems sketchy! Leave the house!", "llllrllrl");
-				//get out of house - upstairs
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrllrlr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrllrlrr");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrllrlrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrllrlrrrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrllrlrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrllrlrrll");
-			
-				//upstairs to basement
-			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "llllrllrll");
-				//get out of basement after upstairs
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrllrllr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrllrllrr");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrllrllrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrllrllrrrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrllrllrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrllrllrrll");
-				//check figure
-			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next", "llllrllrlll");
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrllrlllr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrllrlllrr");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrllrlllrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrllrlllrrrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrllrlllrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrllrlllrrll");
-			
-			//Truth - Leave house
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "llllrlll");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "llllrlllr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "llllrlllrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "llllrlllrll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "llllrlllrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "llllrlllrrr");
 
-			
-		//"Screw them"
-			l.add("Upon exiting the woods, you are tackled to the ground!  A woman is on top of you screaming about helping her friend!\nShe holds you at knife-point and asks if you heard the scream.", "Admit to hearing the scream", "Lie saying you didn't hear the scream", "lllrr");
-			
-		//Lie
-			l.add("She calls you a liar!  She stands you up and leads you back in to the woods with the knife at your back.\nNow you have to go into the cabin.", null, "Next", "lllrrr");
-			l.add("You walk forward into the dark hallway, feeling the wall as you go so you don't trip.\nYou pause... You don't hear the woman behind you.  You turn around and she isn't there anymore...", "Go to the back door! Get out!", "Look for the woman", "lllrrrr");
-			
-		//Look for her - Lie
-			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs", "Look in the basement", "lllrrrrr");
-			
-		//Basement
-			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "lllrrrrrr");
-			
-			//Get out of the house - Basement
-				l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrrrrrr");
-				l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrrrrrrrr");
-				l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrrrrrrrrl");
-				l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrrrrrrrll");
-				l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrrrrrrrrr");
-				l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrrrrrrrrr");
-				
-				l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", "Next", null, "lllrrrrrrl");
-				l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrrrrrll");
-				l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!", "lllrrrrrrllr");
-				l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", null, "Next", "lllrrrrrrllrr");
-				l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrrrrrllrrr");
-				l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null, "lllrrrrrrllrl");
-				l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrrrrrllrll");
-	
-		//Upstairs
-			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement", "This seems sketchy! Leave the house!", "lllrrrrrl");
-			
-		//Leave the house
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrrrrlr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrrrrrlrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrrrrrlrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrrrrlrrll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrrrrrlrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrrrrlrrrr");
-			
-		//Upstairs to basement
-			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "lllrrrrrll");
-			
-		//Get out of the house
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrrrrllr");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrrrrrllrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrrrrrllrrl");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrrrrllrrll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrrrrrllrrr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrrrrllrrrr");
-			
-			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next", "lllrrrrrlll");
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrrrrlllr");
-			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!", "lllrrrrrlllrr");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", null, "Next", "lllrrrrrlllrrr");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrrrrlllrrrr");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null, "lllrrrrrlllrrl");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrrrrlllrrll");
-			
-		//Lie - Get out of the house
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", "Next", null, "lllrrrrl");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrrrrll");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrrrrlll");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrrrllll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrrrrllr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrrrllrr");
-			
-		//Truth
-			l.add("She tells you that you have to help her go find her friend.  \nShe stands you up and leads you back in to the woods with the knife at your back.  You are forced to go into the cabin.", "Next", null, "lllrrl");
-			l.add("You walk forward into the dark hallway, feeling the wall as you go so you don't trip.\nYou pause... You don't hear the woman behind you.  You turn around and she isn't there anymore...", "Go to the back door! Get out!", "Look for the woman", "lllrrll");
-			
-		//Truth - look for her	
-			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs", "Look in the basement", "lllrrllr");
-			
-			//Basement
-				l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "lllrrllrr");
-				
-				//Get out of the house - Basement
-					l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrllrrr");
-					l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrrllrrrr");
-					l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrrllrrrrl");
-					l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrllrrrrll");
-					l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrrllrrrrr");
-					l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrllrrrrrr");
-					
-					l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", "Next", null, "lllrrllrrl");
-					l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrllrrll");
-					l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!", "lllrrllrrllr");
-					l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", null, "Next", "lllrrllrrllrr");
-					l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrllrrllrrr");
-					l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null, "lllrrllrrllrl");
-					l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrllrrllrll");
-				
-		
-			//Upstairs
-				l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement", "This seems sketchy! Leave the house!", "lllrrllrl");
-				
-			//Leave the house
-				l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrllrlr");
-				l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrrllrlrr");
-				l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrrllrlrrl");
-				l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrllrlrrll");
-				l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrrllrlrrr");
-				l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrllrlrrrr");
-				
-			//Upstairs to basement
-				l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...", "Check on the figure", "Get out of this creepy house!", "lllrrllrll");
-				
-			//Get out of the house
-				l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrllrllr");
-				l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrrllrllrr");
-				l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrrllrllrrl");
-				l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrllrllrrll");
-				l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrrllrllrrr");
-				l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrllrllrrrr");
-				
-				l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next", "lllrrllrlll");
-				l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", null, "Next", "lllrrllrlllr");
-				l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!", "lllrrllrlllrr");
-				l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", null, "Next", "lllrrllrlllrrr");
-				l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrllrlllrrrr");
-				l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null, "lllrrllrlllrrl");
-				l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrllrlllrrll");
-		
-		//Truth - Leave house
-			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...", "Next", null, "lllrrlll");
-			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!", "lllrrllll");
-			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...", "Next", null, "lllrrlllll");
-			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...", null, null, "lllrrllllll");
-			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next", "lllrrllllr");
-			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...", null, null, "lllrrllllrr");
-		//Done with "Screw Them"
-			
-			
-	//Woods story
-			l.add("Walking through the woods, the path starts to become unclear.  \nYou hear rustling in the bushes behind you.", "Keep walking", "Turn and look for the noise", "llr");
-			l.add("You hear the noise getting closer and louder!  \nYou turn around and see a giant silhouette towering over you!", null, "Next", "llrl");
-			l.add("The beast hears you! You try and run but you aren't fast enough. \nThe creature mauls you, leaving you to die in the woods", null, null, "llrlr");
+			// right branch
+			l.add("The gates to the town have closed.  There's no going back now.", null, "Keep Going", "r");
+			l.add("As you are walking away from the town, a small group of zombies come out of the woods!\nThe town you came from open fire, and a stray bullet hits you, leaving you as zombie bait...",
+					null, null, "rr");
+			l.add("The clouds suddenly get dark, covering the sun \nand setting an eerie darkness over the land. \nIt looks like it's going to rain.",
+					"Head to the woods", "Continue on the road looking for a town", "l");
+			// Town story
+			l.add("As you travel the rain begins to come down harder.  Soaked and covered in wet clothes, \nyou approach a town, but it looks abandoned...",
+					null, "Next", "lr");
+
+			l.add("At the front of the town is the large town hall building.  \nThe writing on the wall says DO NOT ENTER and it looks like it is written in blood...",
+					"Go in the building", "Look around town", "lrr");
+			l.add("The doors on the building are heavy, but you are able to push them open.\nIt is dark inside, and you hear a muffled noise that sounds like groaning...",
+					"Run out!", "Look for the noise", "lrrl");
+			l.add("As you are walking you step on a wire...You hear a click from far off and a gunshot...", "Next",
+					null, "lrrll");
+			l.add("The wire was a trip-wire connected to a rigged rifle.  You stepping on the wire pulled the trigger, \nfiring the gun aimed towards you, hitting you in the chest, making everything go black...",
+					null, null, "lrrlll");
+
+			l.add("You find the room where the noise is coming from.  \nThe sound is louder and something is bumping against the doors.",
+					"Open up the doors", "Run out of the building!", "lrrlr");
+			l.add("As you are walking you step on a wire...You hear a click from far off and a gunshot...", null,
+					"Next", "lrrlrr");
+			l.add("The wire was a trip-wire connected to a rigged rifle.  You stepping on the wire pulled the trigger, \nfiring the gun aimed towards you, hitting you in the chest, making everything go black...",
+					null, null, "lrrlrrr");
+
+			l.add("You open the doors and a horde of the undead come spilling out of the room!\nThey swarm you, eating you alive...",
+					null, null, "lrrlrl");
+			l.add("As you are walking you step on a wire...You hear a click from far off and a gunshot...", null,
+					"Next", "lrrr");
+			l.add("The wire was a trip-wire connected to a rigged rifle.  You stepping on the wire pulled the trigger, \nfiring the gun aimed towards you, hitting you in the chest, making everything go black...",
+					null, null, "lrrrr");
+
+			// left branch
+			l.add("The woods provide coverage from the rain, but who knows what is in these woods.\nIt's dark and eerie, the wind is blowing.  You have a flashlight in your backpack.  Do you want to use it?",
+					"Yes, use it", "No, don't need it", "ll");
+			// Cabin story
+			l.add("Looking around, you find a small cabin in the woods.\nThere aren't any lights on and one of the windows are smashed in.",
+					"Go up to the house", "Head to the exit", "lll");
+
+			// Go up to the house
+			l.add("You hear a scream from inside the house!", "Help the person who screamed!", "Turn and run!", "llll");
+
+			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs",
+					"Look in the basement", "lllll");
+			// Basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Get out of this creepy house!", "Check on the figure", "lllllr");
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next",
+					"lllllrr");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllllrrr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllllrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllllrrrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllllrrrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllllrrrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllllrrrrrr");
+			// Get out of basement
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					"Next", null, "lllllrl");
+			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!",
+					"lllllrll");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					null, "Next", "lllllrllr");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllllrllrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null,
+					"lllllrlll");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllllrllll");
+
+			// Upstairs
+			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement",
+					"This seems sketchy! Leave the house!", "llllll");
+
+			// Leave the house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllllr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllllrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllllrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllllrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllllrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllllrrrr");
+
+			// Upstairs to basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "lllllll");
+
+			// Get out of the house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllllllr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllllllrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllllllrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllllllrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllllllrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllllllrrrr");
+
+			// Done with "Go up to house"
+
+			// "Head to the exit"
+			// Don't go in the cabin
+			l.add("You are almost to the exit of the woods, when you suddenly hear a scream, \ncoming from the eerie cabin from before.",
+					"Run back to the cabin and help!", "Screw who that was. Not my problem", "lllr");
+
+			// Back to cabin
+			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look in the basement",
+					"Look upstairs", "lllrl");
+			// Basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Get out of this creepy house!", "Check on the figure", "lllrll");
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next",
+					"lllrllr");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrllrr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrllrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrllrrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrllrrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrllrrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrllrrrrr");
+			// Get out of basement
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					"Next", null, "lllrlll");
+			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!",
+					"lllrllll");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					null, "Next", "lllrllllr");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrllllrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null,
+					"lllrlllll");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrllllll");
+
+			// Upstairs
+			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement",
+					"This seems sketchy! Leave the house!", "lllrlr");
+
+			// Leave the house - Upstairs
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrlrr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrlrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrlrrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrlrrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrlrrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrlrrrrr");
+
+			// Upstairs to basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "lllrlrl");
+
+			// Get out of the house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrlrlr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrlrlrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrlrlrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrlrlrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrlrlrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrlrlrrrr");
+
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next",
+					"lllrlrll");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrlrllr");
+			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!",
+					"lllrlrllrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					null, "Next", "lllrlrllrrr");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrlrllrrrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null,
+					"lllrlrllrrl");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrlrllrrll");
+					// Done with "Head to the exit"
+
+			// Turn and run
+			l.add("Upon exiting the woods, you are tackled to the ground!  A woman is on top of you screaming about helping her friend!\nShe holds you at knife-point and asks if you heard the scream.",
+					"Admit to hearing the scream", "Lie saying you didn't hear the scream", "llllr");
+
+			// Lie
+			l.add("She calls you a liar!  She stands you up and leads you back in to the woods with the knife at your back.\nNow you have to go into the cabin.",
+					null, "Next", "llllrr");
+			l.add("You walk forward into the dark hallway, feeling the wall as you go so you don't trip.\nYou pause... You don't hear the woman behind you.  You turn around and she isn't there anymore...",
+					"Go to the back door! Get out!", "Look for the woman", "llllrrr");
+
+			// Look for the woman
+			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs",
+					"Look in the basement", "llllrrrr");
+			// basement - look
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "llllrrrrr");
+			// get out of basement - look
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrrrrrr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrrrrrrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrrrrrrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrrrrrrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrrrrrrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrrrrrrrll");
+			// check figure
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next",
+					"llllrrrrrl");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrrrrrlr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrrrrrlrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrrrrrlrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrrrrrlrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrrrrrlrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrrrrrlrrll");
+
+			// upstairs - look
+			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement",
+					"This seems sketchy! Leave the house!", "llllrrrrl");
+			// get out of house - upstairs
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrrrrlr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrrrrlrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrrrrlrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrrrrlrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrrrrlrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrrrrlrrll");
+
+			// upstairs to basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "llllrrrrll");
+			// get out of basement after upstairs
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrrrrllr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrrrrllrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrrrrllrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrrrrllrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrrrrllrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrrrrllrrll");
+			// check figure
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next",
+					"llllrrrrlll");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrrrrlllr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrrrrlllrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrrrrlllrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrrrrlllrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrrrrlllrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrrrrlllrrll");
+
+			// Lie - Get out of the house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					"Next", null, "llllrrrl");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrrrll");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrrrlll");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrrrllll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrrrllr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrrrllrr");
+
+			// Truth
+			l.add("She tells you that you have to help her go find her friend.  \nShe stands you up and leads you back in to the woods with the knife at your back.  You are forced to go into the cabin.",
+					"Next", null, "llllrl");
+			l.add("You walk forward into the dark hallway, feeling the wall as you go so you don't trip.\nYou pause... You don't hear the woman behind you.  You turn around and she isn't there anymore...",
+					"Go to the back door! Get out!", "Look for the woman", "llllrll");
+
+			// Look for the woman
+			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs",
+					"Look in the basement", "llllrllr");
+			// basement - look
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "llllrllrr");
+			// get out of basement - look
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrllrrr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrllrrrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrllrrrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrllrrrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrllrrrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrllrrrrll");
+			// check figure
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next",
+					"llllrllrrl");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrllrrlr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrllrrlrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrllrrlrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrllrrlrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrllrrlrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrllrrlrrll");
+
+			// upstairs - look
+			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement",
+					"This seems sketchy! Leave the house!", "llllrllrl");
+			// get out of house - upstairs
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrllrlr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrllrlrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrllrlrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrllrlrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrllrlrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrllrlrrll");
+
+			// upstairs to basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "llllrllrll");
+			// get out of basement after upstairs
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrllrllr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrllrllrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrllrllrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrllrllrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrllrllrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrllrllrrll");
+			// check figure
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next",
+					"llllrllrlll");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrllrlllr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrllrlllrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrllrlllrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrllrlllrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrllrlllrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrllrlllrrll");
+
+			// Truth - Leave house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "llllrlll");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"llllrlllr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "llllrlllrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "llllrlllrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"llllrlllrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "llllrlllrrr");
+
+			// "Screw them"
+			l.add("Upon exiting the woods, you are tackled to the ground!  A woman is on top of you screaming about helping her friend!\nShe holds you at knife-point and asks if you heard the scream.",
+					"Admit to hearing the scream", "Lie saying you didn't hear the scream", "lllrr");
+
+			// Lie
+			l.add("She calls you a liar!  She stands you up and leads you back in to the woods with the knife at your back.\nNow you have to go into the cabin.",
+					null, "Next", "lllrrr");
+			l.add("You walk forward into the dark hallway, feeling the wall as you go so you don't trip.\nYou pause... You don't hear the woman behind you.  You turn around and she isn't there anymore...",
+					"Go to the back door! Get out!", "Look for the woman", "lllrrrr");
+
+			// Look for her - Lie
+			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs",
+					"Look in the basement", "lllrrrrr");
+
+			// Basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "lllrrrrrr");
+
+			// Get out of the house - Basement
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrrrrrr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrrrrrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrrrrrrrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrrrrrrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrrrrrrrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrrrrrrrrr");
+
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", "Next", null,
+					"lllrrrrrrl");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrrrrrll");
+			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!",
+					"lllrrrrrrllr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					null, "Next", "lllrrrrrrllrr");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrrrrrllrrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null,
+					"lllrrrrrrllrl");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrrrrrllrll");
+
+			// Upstairs
+			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement",
+					"This seems sketchy! Leave the house!", "lllrrrrrl");
+
+			// Leave the house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrrrrlr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrrrrrlrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrrrrrlrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrrrrlrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrrrrrlrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrrrrlrrrr");
+
+			// Upstairs to basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "lllrrrrrll");
+
+			// Get out of the house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrrrrllr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrrrrrllrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrrrrrllrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrrrrllrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrrrrrllrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrrrrllrrrr");
+
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next",
+					"lllrrrrrlll");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrrrrlllr");
+			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!",
+					"lllrrrrrlllrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					null, "Next", "lllrrrrrlllrrr");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrrrrlllrrrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null,
+					"lllrrrrrlllrrl");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrrrrlllrrll");
+
+			// Lie - Get out of the house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					"Next", null, "lllrrrrl");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrrrrll");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrrrrlll");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrrrllll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrrrrllr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrrrllrr");
+
+			// Truth
+			l.add("She tells you that you have to help her go find her friend.  \nShe stands you up and leads you back in to the woods with the knife at your back.  You are forced to go into the cabin.",
+					"Next", null, "lllrrl");
+			l.add("You walk forward into the dark hallway, feeling the wall as you go so you don't trip.\nYou pause... You don't hear the woman behind you.  You turn around and she isn't there anymore...",
+					"Go to the back door! Get out!", "Look for the woman", "lllrrll");
+
+			// Truth - look for her
+			l.add("In the house there is an upstairs and basement. \nWhere do you go?", "Look upstairs",
+					"Look in the basement", "lllrrllr");
+
+			// Basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "lllrrllrr");
+
+			// Get out of the house - Basement
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrllrrr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrrllrrrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrrllrrrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrllrrrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrrllrrrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrllrrrrrr");
+
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", "Next", null,
+					"lllrrllrrl");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrllrrll");
+			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!",
+					"lllrrllrrllr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					null, "Next", "lllrrllrrllrr");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrllrrllrrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null,
+					"lllrrllrrllrl");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrllrrllrll");
+
+			// Upstairs
+			l.add("The stairs going up only lead to one room, and it is empty.", "Head downstairs to the basement",
+					"This seems sketchy! Leave the house!", "lllrrllrl");
+
+			// Leave the house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrllrlr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrrllrlrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrrllrlrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrllrlrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrrllrlrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrllrlrrrr");
+
+			// Upstairs to basement
+			l.add("The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room...",
+					"Check on the figure", "Get out of this creepy house!", "lllrrllrll");
+
+			// Get out of the house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrllrllr");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrrllrllrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrrllrllrrl");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrllrllrrll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrrllrllrrr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrllrllrrrr");
+
+			l.add("You creep slowly to the figure to find a dead woman!  Get out of this creepy house!", null, "Next",
+					"lllrrllrlll");
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					null, "Next", "lllrrllrlllr");
+			l.add("You turn around and see a masked figure with a knife!", "Turn and fight!", "Try to break out!",
+					"lllrrllrlllrr");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					null, "Next", "lllrrllrlllrrr");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrllrlllrrrr");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", "Next", null,
+					"lllrrllrlllrrl");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrllrlllrrll");
+
+			// Truth - Leave house
+			l.add("You make it to the back door but it is locked from the outside.\nYou hear a creak in the floorboards from behind you...",
+					"Next", null, "lllrrlll");
+			l.add("You turn around and see a masked figure with a knife!", "Try to break out!", "Turn and fight!",
+					"lllrrllll");
+			l.add("As you are panicking and trying to escape the house from the killer, \nyou bust out of the door and stumble onto the back porch...",
+					"Next", null, "lllrrlllll");
+			l.add("You try crawling away off of the porch, and suddenly feel a shooting pain in your back.\nThe masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch...",
+					null, null, "lllrrllllll");
+			l.add("As you charge towards the masked figure you stumble and fall onto the floor...", null, "Next",
+					"lllrrllllr");
+			l.add("You roll over and see the masked figure with the knife above you!\nYou see the knife come down towards you, and everything goes black...",
+					null, null, "lllrrllllrr");
+					// Done with "Screw Them"
+
+			// Woods story
+			l.add("Walking through the woods, the path starts to become unclear.  \nYou hear rustling in the bushes behind you.",
+					"Keep walking", "Turn and look for the noise", "llr");
+			l.add("You hear the noise getting closer and louder!  \nYou turn around and see a giant silhouette towering over you!",
+					null, "Next", "llrl");
+			l.add("The beast hears you! You try and run but you aren't fast enough. \nThe creature mauls you, leaving you to die in the woods",
+					null, null, "llrlr");
 
 			l.add("The creature mauls you, leaving you to die in the woods...", null, null, "llrlr");
-			l.add("You see a silhouette of a large furry creature walking behind some nearby trees.", "Turn and run!", "Crouch in the bushes and hide", "llrr");
-			l.add("The beast walks off. You wait a little longer to be sure, and continue into the woods, searching for a safe place", null, "Next", "llrrr");
-			l.add("As you are searching for a safe place, you hear a loud crack, and a shooting pain in your leg!\nYou look down and see you stepped in a bear trap!", null, "Next", "llrrrr");
-			l.add("You can't move without your leg hurting.  The teeth from the trap dug deep into your leg.\nNothing can save you, and you bleed out in the woods...", null, null, "llrrrrr");
-			l.add("The beast hears you! You try and run but you aren't fast enough. \nThe creature mauls you, leaving you to die in the woods", null, null, "llrrl");
-			
+			l.add("You see a silhouette of a large furry creature walking behind some nearby trees.", "Turn and run!",
+					"Crouch in the bushes and hide", "llrr");
+			l.add("The beast walks off. You wait a little longer to be sure, and continue into the woods, searching for a safe place",
+					null, "Next", "llrrr");
+			l.add("As you are searching for a safe place, you hear a loud crack, and a shooting pain in your leg!\nYou look down and see you stepped in a bear trap!",
+					null, "Next", "llrrrr");
+			l.add("You can't move without your leg hurting.  The teeth from the trap dug deep into your leg.\nNothing can save you, and you bleed out in the woods...",
+					null, null, "llrrrrr");
+			l.add("The beast hears you! You try and run but you aren't fast enough. \nThe creature mauls you, leaving you to die in the woods",
+					null, null, "llrrl");
+
 			newRoom("Travel to the West, heading to the unknown lands", "Keep going", "Turn Around", l, "");
 		}
 	}
@@ -647,7 +906,7 @@ public class Main extends Application {
 			count = 0;
 			filename = "Story2Score.txt";
 			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
-			Tree n = new Tree("You have a choice to chose your dream job. \nRace Car Driver or Airplan Pilot", "Race",
+			Tree n = new Tree("You have a choice to chose your dream job. \nRace Car Driver or Airplane Pilot", "Race",
 					"Pilot", "");
 			// left branch
 			n.add("You're a race car driver now. Quick!\nIt's during a race and a car in front of you started flipping.\nDo you swerve left or right?",
@@ -669,20 +928,55 @@ public class Main extends Application {
 					"Answer", "No", "lrll");
 			n.add("The call was one of those annoying things on the internet\nwhere if you don't like and share a ghost will come and haunt you,\nbut this one was true and because you did not answer\na ghost haunted you at night and killed you and your family",
 					null, null, "lrllr");
-			n.add("You answer the phone and it is your best friend.\nHe wants you to come hangout with him for the night\nand celebrate tour win.What do you do?",
+			n.add("You answer the phone and it is your best friend.\nHe wants you to come hangout with him for the night\nand celebrate your win. What do you do?",
 					"Go", "Stay", "lrlll");
+			n.add("You go out with your friend,\nand you are having the best night of your life.\nHowever you drink and drive and\nget in a accident where you and your best friend die.\nDon't Drink and Drive!",
+					null, null, "lrllll");
+			n.add("You wake up in the morning to 100 missed calls\nand text. You listen to your voicemail,\nand you find out that your best friend\n wife is in labor and your best friend\nis in jail. Do you go get your friend\nor do you leave him in jail to deal\nwith his punishment?",
+					"Leave Him", "Go and get him", "lrlllr");
+			n.add("You decide to do nothing and stay home\nbut your house catches on fire and you die.", null, null,
+					"lrlllrl");
+			n.add("You go to the jail to bail your friend out\nand find out his bail is set at $50,000.\nDo you pay $50,000 to bail him out or\nleave him to go support his wife?",
+					"Pay", "Go see the Wife", "lrlllrr");
+			n.add("You pay his bail as you are walking out of\nthe jail someone escapes and kills you.", null, null,
+					"lrlllrrl");
+			n.add("On the way to the hospital, a semi-truck flips\nand crushes your car and decapitates you.", null,
+					"Continue", "lrlllrrr");
+			n.add("To come back to life. Donald Trump and Hiliary Clinton\nare the nominees who do you vote for",
+					"Trump", "Clinton", "lrlllrrrr");
+			n.add("The whole universe exploded and everyone dies", null, null, "lrlllrrrrl");
+			n.add("You wake up and everything before this was a dream. \nLuckily neither Trump or Clinton are President\nDo you go and make breakfast or go for a run",
+					"Breakfast", "Run", "lrlllrrrrr");
+			n.add("You are carrying a knife and trip and fall.\nKilling you on impact", null, null, "lrlllrrrrrl");
+			n.add("The Path splits do you want to go the right or left", "Left", "Right", "lrlllrrrrrr");
+			n.add("The start of the apocalypse and\nzombies are runnning after you\nYou find a knife do you stop and try to get it\nor do keep running?",
+					"Stop", "Run", "lrlllrrrrrrl");
+			n.add("Just before you get attcked you get grab\nthe knife and continue running\naway. The next thing you know you are getting shot at.\nDo you try and hide or run right at the people\nshooting you?",
+					"Hide", "Run at them", "lrlllrrrrrrll");
+			n.add("You have been hiding for hours but you\ncan still here people in the distance.\nDo you sleep there or try and make it home?",
+					"Sleep", "Home", "lrlllrrrrrrlll");
+			n.add("You get shot by the people\n and then they realised that you wern't a zombie.\nThey fell bad but there is nothing\nthey can do now.",
+					null, null, "lrlllrrrrrrllr");
+			n.add("A Zombie walks out in from of you can kills you.\nYou could not protect your self.\nYou should have grabed the knife",
+					null, null, "lrlllrrrrrrlr");
+			/**
+			 * Left of here continue
+			 */
+			n.add("An escaped convict find you and kills you\nfor your belongings", null, null, "lrlllrrrrrrr");
 
 			// right branch
-			n.add("On your first flight ever and you hit some really hard turbulence.\nWhat are you going to do? Try and land the plane or do you continue to fly?",
+			n.add("On your first flight ever and you\nhit some really hard turbulence.\nWhat are you going to do? Try and land the plane\nor do you continue to fly?",
 					"Land", "Fly", "r");
+			n.add("On your way down to land the plane you are stuck by lightning,\nand all systems fail. You plumbet to the ground\nand everyone dies in a fiery explosion.",
+					null, null, "rl");
 			n.add("You keep flying and you make it out of the storm,\nbut you are informed that there is a bomb on board.\nWhat do you do alert the passangers\nor have the Air Marshal look for the bomb",
 					"Alert", "Air Marshall", "rr");
 			n.add("The air marshal pretends he is going to the bathroom\nand looks for anyone being suspicious,\nhe see's a man and find the bomb.\nIt is deconstructed and everyone lives.\nBut now you are low on gas. What do you do try and land in the ocean\nor in the middle of the forest?",
 					"Ocean", "Forest", "rrr");
 
 			// Original call
-			newRoom("You have a choice to chose your dream job. \nRace Car Driver or Airplan Pilot", "Race", "Pilot", n,
-					"");
+			newRoom("You have a choice to chose your dream job. \nRace Car Driver or Airplane Pilot", "Race", "Pilot",
+					n, "");
 
 		}
 
@@ -726,13 +1020,6 @@ public class Main extends Application {
 		txt.setLayoutX(primaryScreenBounds.getWidth() / 3);
 		txt.setLayoutY((primaryScreenBounds.getHeight() - primaryScreenBounds.getHeight()) + 30);
 		txt.setStyle("-fx-font-size:25;");
-		
-		if(buttonL == null){
-			pane.getChildren().remove(buttL);
-		}
-		if(buttonR == null){
-			pane.getChildren().remove(buttR);
-		}
 
 		if (buttonL == null && buttonR == null) {
 			count = count - 1;
@@ -748,6 +1035,12 @@ public class Main extends Application {
 		} else {
 			count++;
 			pane.getChildren().addAll(txt, buttR, buttL);
+			if (buttonL == null) {
+				pane.getChildren().remove(buttL);
+			}
+			if (buttonR == null) {
+				pane.getChildren().remove(buttR);
+			}
 		}
 
 		buttR.setOnAction((ActionEvent e1) -> {
@@ -771,11 +1064,10 @@ public class Main extends Application {
 		File fileName = new File(filename);
 
 		try (PrintWriter pw = new PrintWriter(new FileWriter(fileName, true));) {
-
 			pw.write(name + ", " + count + "\n");
-
 		} catch (Exception e1) {
 			e1.printStackTrace();
+			
 		}
 	}
 }
