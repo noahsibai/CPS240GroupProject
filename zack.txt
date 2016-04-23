@@ -1,0 +1,31 @@
+The year is 2044 and everyone essentially lives in the virtual world of OASIS. \nIt is the first day of Virtual High School.\nDo you go to class or LVL your character?/Class/LVL up/
+You go to class and sit through the day... boring, but whatever. \nYou hear an announcemnt start to come on at the end of class.\nDo you stay and listen or log out?/Listen/Log out/l
+You decide to skip class and go level today. There is a big \nturnoment in a couple months, maybe if you train hard enough you could\nwin some money for your family./null/next/r
+The principal comes on and says 'This is not a test. \nThe fabeled easter egg is real! The one worth billions! and the first\nclue is on our little school planet!' \nDo you go and look for the clue or log out?/Look/Log out/ll
+As you log out you start to hear and see things outside your virtual headset. \nThere is a lot of screaming and sirens are going off outside.\nThis is pretty common for the post appocaliptic world you live in. \nDo you go investigate or ignore it/Investigate/Ignore/lr
+message/buttonL/buttonR/rl
+message/buttonL/buttonR/rr
+You see a sea of students scrambling in all directions. \nYou see a rather large group heading in one certain direction.\nYou also see a large forest over a hill. \nDo you follow the group or go to the forest?/Follow/Forest/lll
+As you log out you start to hear and see things outside your virtual headset. \nThere is a lot of screaming and sirens are going off outside\nThis is pretty common for the post appocaliptic world you live in. \nDo you go investigate or ignore it?/Investigate/Ignore/llr
+You take a look outside and see hundreds of people scrambling out of their trailers. \nYou do the same and grab a few close belongings and\nbolt out of your trailer. Seconds later it explodes behind you. \nDo you continue to run or look back?/Run/Look back/lrl
+You begin to cook a frozen dinner to eat before you head off to hang with friends. \nAs soon as you touch start on the microwave you hear\na large bang and see everything being engulfed in flames... including you. \nYou have died/null/null/lrr
+message/buttonL/buttonR/rll
+message/buttonL/buttonR/rlr
+message/buttonL/buttonR/rrl
+message/buttonL/buttonR/rrr
+You start to follow the group. \nYou notice that it is a lot of bullys from school. Not the friendliest group\nDo you go and introduce yourself or stay back and trail them?/Introduce/Trail/llll
+As you make it to the forest you realize that no one is looking here \n...weird. you continue on and see an opening\nnot to far into the forest. \nDo you go to the opening or look elsewhere?/Opening/Elsewhere/lllr
+You open your door and as you do there is a very loud bang and a flash. \nyou are thrown into the air barley concious, until you hit the ground and black out.\nYou wake up in a daze. There is beeping around you and all you hear is 'we are losing him!' \nas everything fades to black\nYou have died/null/null/llrl
+You begin to cook a frozen dinner to eat before you head off to hang with friends. \nAs soon as you touch start on the microwave you hear\na large bang and see everything being engulfed in flames... including you. \nYou have died/null/null/llrr
+As you continue to run you fail to realize the large stack of junk cars next to you. \nThey begin to fall and you only just noticed it\nyou try and doge out of the way but it is too late, you are crushed. \nYou have died/null/null/lrll
+You glance back at what was once your home now just a big smoke cloud. \nAs you look you see the large stack of junk cars next to you\nbegin to shake. \nDo you ignore it or get a safe distance away?/Stay/Move/lrlr
+message/buttonL/buttonR/lrrl
+message/buttonL/buttonR/lrrr
+message/buttonL/buttonR/rlll
+message/buttonL/buttonR/rllr
+message/buttonL/buttonR/rlrl
+message/buttonL/buttonR/rlrr
+message/buttonL/buttonR/rrll
+message/buttonL/buttonR/rrlr
+message/buttonL/buttonR/rrrl
+message/buttonL/buttonR/rrrr
