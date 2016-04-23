@@ -1,25 +1,115 @@
-package groupProject;
+
+import java.awt.Point;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Scanner;
+
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
- * @author Noah Sibai
+ * @author Noah Sibai, Logan Greer, Paul Lamine, Bradley Davis, Zachary C.
  * @fileName Main.java
  * @version 1.0
  */
 public class Main extends Application {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		launch(args);
+
+//		File fil = new File("paul.txt");
+//		PrintWriter write = new PrintWriter(fil);
+
+//		add("root message", "right butt", "lButtont", "", write);
+//		write.close();
+		System.exit(0);
+	}
+
+//	static PrintWriter write = new PrintWriter(f);
+	public static void add(String m, String rBut, String lBut, String pos, PrintWriter f) throws FileNotFoundException{
+		@SuppressWarnings("resource")
+		Scanner scan = new Scanner(System.in);
+
+		f.append( m + "/" + rBut + "/" + lBut + '/' + pos );  //Keep this
+									//Writes data to file, with delimiters
+
+		String m2;
+		String rBut2;
+		String lBut2;
+		String newPos;
+							//turn these into textbox's
+		System.out.println("Added new message: " + m + "\n Right choice: " + rBut + "\n Left choice: " + lBut );
+		System.out.println("Enter L to add only left child, R to add only Right, or RL to add both");
+		String next = scan.nextLine();
+
+		if (next.equalsIgnoreCase("l")){
+			newPos = pos + 'l';
+
+			System.out.println(m + "Enter message after left choice " + lBut);
+			m2 = scan.nextLine();			//Turn these into TextBox's
+			//somthing like m2= textbox.getValue()
+			System.out.println("Enter Right Button");
+			rBut2 = scan.nextLine();
+			System.out.println("Enter Left Button");
+			lBut2 = scan.nextLine();
+
+
+			add(m2, rBut2, lBut2, newPos, f);
+		}
+
+		if (next.equalsIgnoreCase("r")){
+			newPos = pos + 'r';
+
+			System.out.println(m + "Enter message after right choice " + rBut);
+			m2 = scan.nextLine();
+			System.out.println("Enter Right Button");
+			rBut2 = scan.nextLine();
+			System.out.println("Enter Left Button");
+			lBut2 = scan.nextLine();
+
+			add(m2, rBut2, lBut2, newPos, f);
+		}
+
+		if (next.equalsIgnoreCase("lr") || next.equalsIgnoreCase("rl")){
+			newPos = pos + 'l';
+			System.out.println(m + " Enter Message after left choice " + lBut);
+			m2 = scan.nextLine();
+			System.out.println("is there a message : " + m2 + "");
+			System.out.println("Enter Right Button");
+			rBut2 = scan.nextLine();
+			System.out.println("Enter Left Button");
+			lBut2 = scan.nextLine();
+			add(m2, rBut2, lBut2, newPos, f);
+
+			newPos = pos + 'r';
+			System.out.println(m + "Enter message after right choice " + rBut);
+			m2 = scan.nextLine();
+			System.out.println("Enter Right Button");
+			rBut2 = scan.nextLine();
+			System.out.println("Enter Left Button");
+			lBut2 = scan.nextLine();
+			add(m2, rBut2, lBut2, newPos, f);
+
+		}else{
+//			write.close();
+			return;
+		}
+
+//		write.close();
+		return;
 	}
 
 	Pane pane = new Pane();
@@ -30,256 +120,171 @@ public class Main extends Application {
 	Button Bradb = null;
 	Button Paul = null;
 	Button Zack = null;
+	String name = null;
+	static String filename = null;
+	Button exit = null;
+	TextField scoreText = new TextField();
+	File zackFile = new File("zack.txt");
 	int count = 0;
+	Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		startText = new Text("Please Choose a Story Line");
-		startText.setStyle("-fx-font-size:50;");
-		startText.setLayoutX(380);
-		startText.setLayoutY(250);
-		restart = new Button("Restart");
-		restart.setLayoutX(650);
-		restart.setLayoutY(600);
-		restart.setScaleX(3);
-		restart.setScaleY(3);
-		Logan = new Button("Logan Story 1");
-		Logan.setLayoutX(150);
-		Logan.setLayoutY(300);
-		Logan.setScaleX(3);
-		Logan.setScaleY(3);
-		Noah = new Button("Noah Story 2");
-		Noah.setLayoutX(400);
-		Noah.setLayoutY(300);
-		Noah.setScaleX(3);
-		Noah.setScaleY(3);
-		Bradb = new Button("Brad Story 3");
-		Bradb.setLayoutX(650);
-		Bradb.setLayoutY(300);
-		Bradb.setScaleX(3);
-		Bradb.setScaleY(3);
-		Paul = new Button("Paul: Story 4");
-		Paul.setLayoutX(900);
-		Paul.setLayoutY(300);
-		Paul.setScaleX(3);
-		Paul.setScaleY(3);
-		Zack = new Button("Zack Story 5");
-		Zack.setLayoutX(1150);
-		Zack.setLayoutY(300);
-		Zack.setScaleX(3);
-		Zack.setScaleY(3);
-		Logan logan = new Logan();
-		Logan.setOnAction(logan);
-		Noah noah = new Noah();
-		Noah.setOnAction(noah);
-		Brad brad = new Brad();
-		Bradb.setOnAction(brad);
-		Paul paul = new Paul();
-		Paul.setOnAction(paul);
-		Zack zack = new Zack();
-		Zack.setOnAction(zack);
-
-		pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan);
-		Scene sc = new Scene(pane, 400, 400);
+		Text namePrompt = new Text("Please enter your initials");
+		namePrompt.setLayoutX((primaryScreenBounds.getWidth() / 2) - 90);
+		namePrompt.setLayoutY((primaryScreenBounds.getWidth() / 2) - 275);
+		scoreText.setLayoutX((primaryScreenBounds.getWidth() / 2) - 100);
+		scoreText.setLayoutY((primaryScreenBounds.getWidth() / 2) - 250);
+		Button enterName = new Button("Enter");
+		enterName.setLayoutX((primaryScreenBounds.getWidth() / 2) - 50);
+		enterName.setLayoutY((primaryScreenBounds.getWidth() / 2) - 150);
+		enterName.setScaleX(3);
+		enterName.setScaleY(3);
+		pane.getChildren().addAll(namePrompt, scoreText, enterName);
+		enterName.setOnAction((ActionEvent e) -> {
+			name = scoreText.getText();
+			pane.getChildren().clear();
+			exit = new Button("Exit");
+			exit.setScaleX(3);
+			exit.setScaleY(3);
+			exit.setLayoutX((primaryScreenBounds.getWidth() / 2));
+			exit.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
+			startText = new Text("Please Choose a Story Line");
+			startText.setStyle("-fx-font-size:50;");
+			startText.setLayoutX((primaryScreenBounds.getWidth() / 2) - 300);
+			startText.setLayoutY(250);
+			restart = new Button("Restart");
+			restart.setLayoutX((primaryScreenBounds.getWidth() / 2) + 400);
+			restart.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
+			restart.setScaleX(3);
+			restart.setScaleY(3);
+			Logan = new Button("Story 1");
+			Logan.setLayoutX((primaryScreenBounds.getWidth() / 9) + 25);
+			Logan.setLayoutY(primaryScreenBounds.getHeight() / 2);
+			Logan.setScaleX(3);
+			Logan.setScaleY(3);
+			Noah = new Button("Story 2");
+			Noah.setLayoutX((primaryScreenBounds.getWidth() / 3.5) + 25);
+			Noah.setLayoutY(primaryScreenBounds.getHeight() / 2);
+			Noah.setScaleX(3);
+			Noah.setScaleY(3);
+			Bradb = new Button("Story 3");
+			Bradb.setLayoutX((primaryScreenBounds.getWidth() / 2.25) + 40);
+			Bradb.setLayoutY(primaryScreenBounds.getHeight() / 2);
+			Bradb.setScaleX(3);
+			Bradb.setScaleY(3);
+			Paul = new Button("Story 4");
+			Paul.setLayoutX((primaryScreenBounds.getWidth() / 1.6) + 25);
+			Paul.setLayoutY(primaryScreenBounds.getHeight() / 2);
+			Paul.setScaleX(3);
+			Paul.setScaleY(3);
+			Zack = new Button("Story 5");
+			Zack.setLayoutX((primaryScreenBounds.getWidth() - 250));
+			Zack.setLayoutY(primaryScreenBounds.getHeight() / 2);
+			Zack.setScaleX(3);
+			Zack.setScaleY(3);
+			Logan logan = new Logan();
+			Logan.setOnAction(logan);
+			Noah noah = new Noah();
+			Noah.setOnAction(noah);
+			Brad brad = new Brad();
+			Bradb.setOnAction(brad);
+			Paul paul = new Paul();
+			Paul.setOnAction(paul);
+			Zack zack = new Zack();
+			Zack.setOnAction(zack);
+			reset reset = new reset();
+			restart.setOnAction(reset);
+			pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan);
+		});
+		Scene sc = new Scene(pane, primaryScreenBounds.getWidth(), primaryScreenBounds.getHeight());
 		stage.setTitle("Welcome to the Game");
 		stage.setScene(sc);
 		stage.setMaximized(true);
 		stage.show();
 	}
 
-	public void newRoom(String message, String button1, String button2 ){
-//		Remove everything from the pane
-		pane.getChildren().clear();
-
-//		Creates new "Room" with message and choices
-
-		Text txt = new Text(message);
-		Button butt1 = new Button(button1);
-		Button butt2 = new Button(button2);
-
-		butt1.setScaleX(3);
-		butt1.setScaleY(3);
-		butt1.setLayoutX(250);
-		butt1.setLayoutY(300);
-
-		butt2.setScaleX(3);
-		butt2.setScaleY(3);
-		butt2.setLayoutX(1000);
-		butt2.setLayoutY(300);
-
-		txt.setLayoutX(400);
-		txt.setLayoutY(200);
-		txt.setStyle("-fx-font-size:25;");
-
-		pane.getChildren().addAll(txt,butt1, butt2);
-
-//	FIXME:	Add Tree data structure (Probably in separate class)
-//	FIXME:  Add way to traverse node's on call of function
-
-		butt1.setOnAction((ActionEvent e2) ->{
-			newRoom("You find some poison", "Kill MOM", "Kill Bear");
-//			tree.goToLeftChild (Somehow Move to the left node)
-//	FIXME:		newRoom(tree.node.message, tree.node.choice1, tree.node.choice2);
-		});
-
-		butt2.setOnAction((ActionEvent e2) ->{
-			newRoom("You find some dogs", "Eat nuts", "KILL");
-//	FIXME:		newRoom(tree.node.message, tree.node.choice1, tree.node.choice2);
-
-		});
-
-	}
-
-	public void scoreSheet(int count, String name, String filename) {
-		// Add on exit
-		File fileName = new File(filename);
-		try (PrintWriter pw = new PrintWriter(new FileWriter(fileName, true));) {
-			pw.write(name + ", " + count + "\n");
-		} catch (Exception e1) {
-			e1.printStackTrace();
+	class reset implements EventHandler<ActionEvent> {
+		@Override
+		public void handle(ActionEvent arg0) {
+			pane.getChildren().clear();
+			Text namePrompt = new Text("Please enter your initials");
+			namePrompt.setLayoutX((primaryScreenBounds.getWidth() / 2) - 90);
+			namePrompt.setLayoutY((primaryScreenBounds.getWidth() / 2) - 275);
+			scoreText.setLayoutX((primaryScreenBounds.getWidth() / 2) - 100);
+			scoreText.setLayoutY((primaryScreenBounds.getWidth() / 2) - 250);
+			Button enterName = new Button("Enter");
+			enterName.setLayoutX((primaryScreenBounds.getWidth() / 2) - 50);
+			enterName.setLayoutY((primaryScreenBounds.getWidth() / 2) - 150);
+			enterName.setScaleX(3);
+			enterName.setScaleY(3);
+			pane.getChildren().addAll(namePrompt, scoreText, enterName);
+			enterName.setOnAction((ActionEvent e) -> {
+				name = scoreText.getText();
+				pane.getChildren().clear();
+				exit = new Button("Exit");
+				exit.setScaleX(3);
+				exit.setScaleY(3);
+				exit.setLayoutX((primaryScreenBounds.getWidth() / 2));
+				exit.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
+				startText = new Text("Please Choose a Story Line");
+				startText.setStyle("-fx-font-size:50;");
+				startText.setLayoutX((primaryScreenBounds.getWidth() / 2) - 300);
+				startText.setLayoutY(250);
+				restart = new Button("Restart");
+				restart.setLayoutX((primaryScreenBounds.getWidth() / 2) + 400);
+				restart.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
+				restart.setScaleX(3);
+				restart.setScaleY(3);
+				Logan = new Button("Story 1");
+				Logan.setLayoutX((primaryScreenBounds.getWidth() / 9) + 25);
+				Logan.setLayoutY(primaryScreenBounds.getHeight() / 2);
+				Logan.setScaleX(3);
+				Logan.setScaleY(3);
+				Noah = new Button("Story 2");
+				Noah.setLayoutX((primaryScreenBounds.getWidth() / 3.5) + 25);
+				Noah.setLayoutY(primaryScreenBounds.getHeight() / 2);
+				Noah.setScaleX(3);
+				Noah.setScaleY(3);
+				Bradb = new Button("Story 3");
+				Bradb.setLayoutX((primaryScreenBounds.getWidth() / 2.25) + 40);
+				Bradb.setLayoutY(primaryScreenBounds.getHeight() / 2);
+				Bradb.setScaleX(3);
+				Bradb.setScaleY(3);
+				Paul = new Button("Story 4");
+				Paul.setLayoutX((primaryScreenBounds.getWidth() / 1.6) + 25);
+				Paul.setLayoutY(primaryScreenBounds.getHeight() / 2);
+				Paul.setScaleX(3);
+				Paul.setScaleY(3);
+				Zack = new Button("Story 5");
+				Zack.setLayoutX((primaryScreenBounds.getWidth() - 250));
+				Zack.setLayoutY(primaryScreenBounds.getHeight() / 2);
+				Zack.setScaleX(3);
+				Zack.setScaleY(3);
+				Logan logan = new Logan();
+				Logan.setOnAction(logan);
+				Noah noah = new Noah();
+				Noah.setOnAction(noah);
+				Brad brad = new Brad();
+				Bradb.setOnAction(brad);
+				Paul paul = new Paul();
+				Paul.setOnAction(paul);
+				Zack zack = new Zack();
+				Zack.setOnAction(zack);
+				reset reset = new reset();
+				restart.setOnAction(reset);
+				pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan);
+			});
 		}
+
 	}
 
 	class Logan implements EventHandler<ActionEvent> {
-
 		@Override
 		public void handle(ActionEvent arg0) {
-			String filename = "Story1Score.txt";
+			count = 0;
+			filename = "Story1Score.txt";
 			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
-			Text westText = new Text(
-					"Travel to the West, heading to the unknow lands.\n" + "Keep going or turn around");
-			westText.setLayoutX(400);
-			westText.setLayoutY(200);
-			westText.setStyle("-fx-font-size:25;");
-			Button headBack = new Button("Head Back");
-			Button keepGoing = new Button("Keep Going");
-			headBack.setScaleX(3);
-			headBack.setScaleY(3);
-			headBack.setLayoutX(250);
-			headBack.setLayoutY(300);
-			keepGoing.setScaleX(3);
-			keepGoing.setScaleY(3);
-			keepGoing.setLayoutX(1000);
-			keepGoing.setLayoutY(300);
-			Text headBackText = new Text("The gates to town have closed. There's no going back now!");
-			headBackText.setLayoutX(400);
-			headBackText.setLayoutY(200);
-			headBackText.setStyle("-fx-font-size:25;");
-			headBack.setOnAction((ActionEvent e2) -> {
-				pane.getChildren().removeAll(headBack, westText);
-				pane.getChildren().add(headBackText);
-
-			});
-			keepGoing.setOnAction((ActionEvent e2) -> {
-				pane.getChildren().removeAll(headBack, keepGoing, westText, headBackText);
-				Text keepGoingText = new Text("The clouds suddenly get dark,"
-						+ "\ncovering the sun and setting an\neerie darkness over the land"
-						+ "\nIt looks like it's going to start raining\nDo you head to the woods that are in sight\n"
-						+ "or continue along the road to the right\nto search for another town?");
-				keepGoingText.setLayoutX(425);
-				keepGoingText.setLayoutY(50);
-				keepGoingText.setStyle("-fx-font-size:25;");
-				Button woods = new Button("Woods");
-				Button town = new Button("Town");
-				woods.setScaleX(3);
-				woods.setScaleY(3);
-				woods.setLayoutX(250);
-				woods.setLayoutY(300);
-				town.setScaleX(3);
-				town.setScaleY(3);
-				town.setLayoutX(1000);
-				town.setLayoutY(300);
-				woods.setOnAction((ActionEvent e3) -> {
-					pane.getChildren().removeAll(town, woods, keepGoingText);
-					Text woodsText = new Text("The woods provide coverage from the rain,"
-							+ "\nbut who knows what is in these woods." + "\nIt's dark and eerie, the wind is blowing."
-							+ "\nYou have a flashlight in your backpack.\nDo you want to use it?");
-					woodsText.setLayoutX(425);
-					woodsText.setLayoutY(50);
-					woodsText.setStyle("-fx-font-size:25;");
-					Button yes = new Button("Yes");
-					Button no = new Button("No");
-					yes.setScaleX(3);
-					yes.setScaleY(3);
-					yes.setLayoutX(250);
-					yes.setLayoutY(300);
-					no.setScaleX(3);
-					no.setScaleY(3);
-					no.setLayoutX(1000);
-					no.setLayoutY(300);
-					pane.getChildren().addAll(woodsText, yes, no);
-				});
-				town.setOnAction((ActionEvent e3) -> {
-					pane.getChildren().removeAll(town, woods, keepGoingText);
-					Text townText = new Text("As you travel the rain begins to "
-							+ "\ncome down harder.  Soaked and covered in wet clothes, you "
-							+ "\napproach a town, but it looks abandoned...");
-					townText.setLayoutX(425);
-					townText.setLayoutY(50);
-					townText.setStyle("-fx-font-size:25;");
-					Button next1 = new Button("Next");
-					next1.setScaleX(3);
-					next1.setScaleY(3);
-					next1.setLayoutX(1000);
-					next1.setLayoutY(300);
-					pane.getChildren().addAll(townText, next1);
-
-					next1.setOnAction((ActionEvent e4) -> {
-						pane.getChildren().removeAll(next1, townText);
-						Text building = new Text("At the front of the town is the large "
-								+ "\ntown hall building.  The writing on the wall says 'DO NOT ENTER' "
-								+ "\nand it looks like it is written in blood...");
-						building.setLayoutX(425);
-						building.setLayoutY(50);
-						building.setStyle("-fx-font-size:25;");
-						Button goIn = new Button("Go in building");
-						Button lookAround = new Button("Look around town");
-						goIn.setScaleX(3);
-						goIn.setScaleY(3);
-						goIn.setLayoutX(250);
-						goIn.setLayoutY(300);
-						lookAround.setScaleX(3);
-						lookAround.setScaleY(3);
-						lookAround.setLayoutX(1000);
-						lookAround.setLayoutY(300);
-						pane.getChildren().addAll(building, goIn, lookAround);
-
-						lookAround.setOnAction((ActionEvent e5) -> {
-							int count = 1;
-							pane.getChildren().removeAll(building, goIn, lookAround, restart);
-							Text lookText = new Text(
-									"As you are walking you step on a wire.  You hear a click from far off and a gunshot."
-											+ "\nThe wire was a trip-wire connected to a rigged rifle.  You stepping on the wire "
-											+ "\npulled the trigger, firing the gun aimed towards you, hitting you in the chest, making everything go black...");
-							Text namePrompt = new Text("Please enter your initials");
-							namePrompt.setLayoutX(600);
-							namePrompt.setLayoutY(350);
-							TextField scoreText = new TextField();
-							scoreText.setLayoutX(600);
-							scoreText.setLayoutY(400);
-							Button exit = new Button("Exit");
-							exit.setScaleX(3);
-							exit.setScaleY(3);
-							exit.setLayoutX(650);
-							exit.setLayoutY(600);
-							lookText.setLayoutX(350);
-							lookText.setLayoutY(200);
-							lookText.setStyle("-fx-font-size:25;");
-							pane.getChildren().addAll(namePrompt, scoreText, lookText, exit);
-							exit.setOnAction((ActionEvent e6) -> {
-								String name = scoreText.getText();
-								scoreSheet(count, name, filename);
-								System.exit(0);
-							});
-
-						});
-
-					});
-
-				});
-				pane.getChildren().addAll(keepGoingText, woods, town);
-			});
-			pane.getChildren().addAll(headBack, keepGoing, westText);
 
 		}
 	}
@@ -288,6 +293,9 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
+			count = 0;
+			filename = "Story3Score.txt";
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
 		}
 
 	}
@@ -296,9 +304,18 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
-			pane.getChildren().clear();
+			count = 0;
+			filename = "Story4Score.txt";
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
 
-			newRoom("You got eaten by a Bear", "choice1", "choice2");
+			try{
+				File paulFile = new File("paul.txt");
+				Tree p = new Tree(paulFile);
+				newRoom(p, new Point(0,0));
+			}catch(FileNotFoundException e){
+				e.printStackTrace();
+			}
+
 		}
 
 	}
@@ -307,6 +324,17 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
+			count = 0;
+			filename = "Story5Score.txt";
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
+			try {
+				File zackFile = new File("zach.txt");
+				Tree z = new Tree(zackFile);
+				newRoom(z, new Point(0,0));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+
 		}
 
 	}
@@ -316,133 +344,99 @@ public class Main extends Application {
 		@Override
 		public void handle(ActionEvent event) {
 			count = 0;
-			String filename = "Story2Score.txt";
+			filename = "Story5Score.txt";
 			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
-			Text text = new Text("You have a choice to chose your dream job. \nRace Car Driver or Airplan Pilot");
-			text.setLayoutX(350);
-			text.setLayoutY(200);
-			text.setStyle("-fx-font-size:25;");
-			Button raceCar = new Button("Race");
-			Button pilot = new Button("Pilot");
-			raceCar.setScaleX(3);
-			raceCar.setScaleY(3);
-			raceCar.setLayoutX(250);
-			raceCar.setLayoutY(300);
-			raceCar.setOnAction((ActionEvent e2) -> {
-				pane.getChildren().removeAll(text, raceCar, pilot);
-				Text raceText = new Text("You're a race car driver now. Quick!"
-						+ "\nIt's during a race and a car in front of you started flipping.\nDo you swerve left or right?");
-				raceText.setLayoutX(350);
-				raceText.setLayoutY(200);
-				raceText.setStyle("-fx-font-size:25;");
-				Button left = new Button("Left");
-				Button right = new Button("Right");
-				left.setScaleX(3);
-				left.setScaleY(3);
-				left.setLayoutX(250);
-				left.setLayoutY(300);
-				right.setScaleX(3);
-				right.setScaleY(3);
-				right.setLayoutX(1000);
-				right.setLayoutY(300);
-				left.setOnAction((ActionEvent e3) -> {
-					pane.getChildren().removeAll(raceText, left, right, restart);
-					Text raceDeath = new Text("The Car lands on top of you, \nand you die instantly");
-					Text namePrompt = new Text("Please enter your initials");
-					namePrompt.setLayoutX(600);
-					namePrompt.setLayoutY(350);
-					TextField scoreText = new TextField();
-					scoreText.setLayoutX(600);
-					scoreText.setLayoutY(400);
-					Button exit = new Button("Exit");
-					exit.setScaleX(3);
-					exit.setScaleY(3);
-					exit.setLayoutX(650);
-					exit.setLayoutY(600);
-					raceDeath.setLayoutX(350);
-					raceDeath.setLayoutY(200);
-					raceDeath.setStyle("-fx-font-size:50;");
-					exit.setOnAction((ActionEvent e4) -> {
-						String name = scoreText.getText();
-						scoreSheet(count, name, filename);
-						System.exit(0);
-					});
-					pane.getChildren().addAll(namePrompt, scoreText, raceDeath, exit);
-				});
-				right.setOnAction((ActionEvent e5) -> {
-					pane.getChildren().removeAll(raceText, left, right);
-					Text raceText2 = new Text("You barely make it out of the wreck."
-							+ "\nHowever your car is extremely damaged."
-							+ "There is 5 laps left!\nDo you stop and fix your car or try to finish the race as is?");
-					raceText2.setLayoutX(350);
-					raceText2.setLayoutY(100);
-					raceText2.setStyle("-fx-font-size:25;");
-					Button fix = new Button("Fix");
-					Button contin = new Button("Continue");
-					fix.setScaleX(3);
-					fix.setScaleY(3);
-					fix.setLayoutX(250);
-					fix.setLayoutY(300);
-					contin.setScaleX(3);
-					contin.setScaleY(3);
-					contin.setLayoutX(1000);
-					contin.setLayoutY(300);
-					fix.setOnAction((ActionEvent e6) -> {
-					});
-					contin.setOnAction((ActionEvent e6) -> {
-						int count = 2;
-						pane.getChildren().removeAll(raceText2, fix, contin, restart);
-						Text raceDeath = new Text("You are just about to cross the finish line\nand win,"
-								+ "but your car stop because it ran\nout of oil and your car blows up killing you");
-						Text namePrompt = new Text("Please enter your initials");
-						namePrompt.setLayoutX(600);
-						namePrompt.setLayoutY(350);
-						TextField scoreText = new TextField();
-						scoreText.setLayoutX(600);
-						scoreText.setLayoutY(400);
-						Button exit = new Button("Exit");
-						exit.setScaleX(3);
-						exit.setScaleY(3);
-						exit.setLayoutX(650);
-						exit.setLayoutY(600);
-						raceDeath.setLayoutX(250);
-						raceDeath.setLayoutY(50);
-						raceDeath.setStyle("-fx-font-size:50;");
-						exit.setOnAction((ActionEvent e4) -> {
-							String name = scoreText.getText();
-							scoreSheet(count, name, filename);
-							System.exit(0);
-						});
-						pane.getChildren().addAll(namePrompt, scoreText, raceDeath, exit);
-					});
-					pane.getChildren().addAll(raceText2, fix, contin);
-				});
-				pane.getChildren().addAll(left, right, raceText);
-			});
-			pilot.setScaleX(3);
-			pilot.setScaleY(3);
-			pilot.setLayoutX(1000);
-			pilot.setLayoutY(300);
-			pilot.setOnAction((ActionEvent e2) -> {
-				pane.getChildren().removeAll(text, raceCar, pilot);
-				Text pilotText = new Text("On your first flight ever and you hit some really hard turbulence.\n"
-						+ "What are you going to do? Try and land the plane or do you continue to fly? ");
-				pilotText.setLayoutX(350);
-				pilotText.setLayoutY(200);
-				pilotText.setStyle("-fx-font-size:25;");
-				Button land = new Button("Land");
-				Button fly = new Button("Fly");
-				land.setScaleX(3);
-				land.setScaleY(3);
-				land.setLayoutX(250);
-				land.setLayoutY(300);
-				fly.setScaleX(3);
-				fly.setScaleY(3);
-				fly.setLayoutX(1000);
-				fly.setLayoutY(300);
-				pane.getChildren().addAll(land, fly, pilotText);
-			});
-			pane.getChildren().addAll(text, raceCar, pilot);
+		}
+	}
+
+
+	public void score() throws FileNotFoundException {
+		name = scoreText.getText();
+		scoreSheet(count, name, filename);
+	}
+
+	class exit implements EventHandler<ActionEvent> {
+
+		@Override
+		public void handle(ActionEvent arg0) {
+			System.exit(0);
+		}
+
+	}
+
+	public void newRoom(Tree tree, Point pos) {
+		int x = (int) pos.getX();
+		int y = (int) pos.getY();
+		Node n = tree.getNode(pos);
+		// Remove everything from the pane
+		pane.getChildren().clear();
+		pane.getChildren().add(restart);
+		// Creates new "Room" with message and choices
+		Text txt = new Text(n.getMessage());
+		Button buttR = new Button(n.getButtonR()); // right choice
+		Button buttL = new Button(n.getButtonL()); // left Choice
+
+		buttL.setScaleX(3);
+		buttL.setScaleY(3);
+		buttL.setLayoutX((primaryScreenBounds.getWidth() / 3) - 100);
+		buttL.setLayoutY((primaryScreenBounds.getHeight() / 2));
+
+		buttR.setScaleX(3);
+		buttR.setScaleY(3);
+		buttR.setLayoutX((primaryScreenBounds.getWidth() / 1.5) + 75);
+		buttR.setLayoutY(primaryScreenBounds.getHeight() / 2);
+
+		txt.setLayoutX(primaryScreenBounds.getWidth() / 3);
+		txt.setLayoutY((primaryScreenBounds.getHeight() - primaryScreenBounds.getHeight()) + 30);
+		txt.setStyle("-fx-font-size:25;");
+
+		if (n.getButtonL() == null && n.getButtonR() == null) {
+			count = count - 1;
+			try {
+				score();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			exit ex = new exit();
+			exit.setOnAction(ex);
+			pane.getChildren().addAll(txt, exit);
+		} else {
+			count++;
+			pane.getChildren().addAll(txt, buttR, buttL);
+			if (n.getButtonL() == null) {
+				pane.getChildren().remove(buttL);
+			}
+			if (n.getButtonR() == null) {
+				pane.getChildren().remove(buttR);
+			}
+		}
+
+		buttR.setOnAction((ActionEvent e1) -> {
+			// Go Right
+			Node r = tree.getNode(new Point(x+1, (2*y) + 1));
+			newRoom(tree, r.getPos());
+		});
+
+		buttL.setOnAction((ActionEvent e2) -> {
+			// Go Left
+			Node l = tree.getNode(new Point(x+1, (2*y)));
+			newRoom(tree, l.getPos());
+		});
+
+	}
+
+	public void scoreSheet(int count, String name, String filename) throws FileNotFoundException {
+		// Add on exit
+		// Fix so when they don't put intitals it doesn't add
+
+		File fileName = new File(filename);
+
+		try (PrintWriter pw = new PrintWriter(new FileWriter(fileName, true));) {
+			pw.write(name + ", " + count + "\n");
+		} catch (Exception e1) {
+			e1.printStackTrace();
+
 		}
 	}
 }
