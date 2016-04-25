@@ -12,23 +12,29 @@ import java.util.Scanner;
  */
 
 public class Tree {
-
+	private String name;
 	ArrayList<Node> root = new ArrayList<Node>();
 	Scanner s;
 
 	public Tree(File f) throws FileNotFoundException {
 		s = new Scanner(f);
+		
+		name = s.nextLine();
 		s.useDelimiter("/|\\n");
-
+		
 		while (s.hasNextLine()) {
 			String message = s.next();
-			message = SplitString(message, 50);
+			message = SplitString(message, 30);
 			String choiceR = s.next();
 			String choiceL = s.next();
 			Point pos = convert(s.next());
 			root.add(new Node(message, choiceR, choiceL, pos));
 		}
 		s.close();
+	}
+	
+	public String getName(){
+		return name;
 	}
 
 	public Node getNode(Point pos) {

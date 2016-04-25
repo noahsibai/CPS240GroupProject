@@ -1,3 +1,4 @@
+zack
 The year is 2044 and everyone essentially lives in the virtual world of OASIS. It is the first day of Virtual High School. Do you go to class or LVL your character?/Class/LVL up/
 You go to class and sit through the day... boring, but whatever. You hear an announcemnt start to come on at the end of class. Do you stay and listen or log out?/Listen/Log out/l
 You decide to skip class and go level today. There is a big turnoment in a couple months, maybe if you train hard enough you could win some money for your family./null/next/r

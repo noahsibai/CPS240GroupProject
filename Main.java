@@ -1,23 +1,25 @@
 package checkGroup;
 
+import java.awt.Desktop;
 import java.awt.Point;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -31,6 +33,7 @@ public class Main extends Application {
 		launch(args);
 	}
 
+	private Desktop desktop = Desktop.getDesktop();
 	Pane pane = new Pane();
 	Button Logan = null;
 	Text startText = null;
@@ -40,6 +43,7 @@ public class Main extends Application {
 	Button Paul = null;
 	Button Zack = null;
 	String name = null;
+	Button load = null;
 	static String filename = null;
 	Button exit = null;
 	TextField scoreText = new TextField();
@@ -50,6 +54,20 @@ public class Main extends Application {
 	File paulFile = new File("paulfile.txt");
 	int count = 0;
 	Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+	final FileChooser fileChooser = new FileChooser();
+	final Button openButton = new Button("Open a file");
+	final Button saveButton = new Button("Save");
+	Stage stage = new Stage();
+	String treeName;
+	Point global;
+	Tree p;
+	Tree l;
+	Tree z;
+	Tree n;
+	Tree b;
+	Tree temp;
+	int x;
+	int y;
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -118,7 +136,33 @@ public class Main extends Application {
 			Zack.setOnAction(zack);
 			reset reset = new reset();
 			restart.setOnAction(reset);
-			pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan);
+
+			saveButton.setLayoutX(primaryScreenBounds.getWidth() - (primaryScreenBounds.getWidth() - 75));
+			saveButton.setLayoutY(primaryScreenBounds.getHeight() - (primaryScreenBounds.getHeight() - 1));
+			openButton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(final ActionEvent e) {
+					File file = fileChooser.showOpenDialog(stage);
+					if (file != null) {
+						openFile(file);
+					}
+				}
+			});
+			saveButton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(final ActionEvent e) {
+					File file = new File(treeName.concat("score.txt"));
+					if (file != null) {
+						try {
+							SaveFile(file, treeName, global, count);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}
+			});
+			pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton);
 		});
 		Scene sc = new Scene(pane, primaryScreenBounds.getWidth(), primaryScreenBounds.getHeight());
 		stage.setTitle("Welcome to the Game");
@@ -196,7 +240,8 @@ public class Main extends Application {
 				Zack.setOnAction(zack);
 				reset reset = new reset();
 				restart.setOnAction(reset);
-				pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan);
+
+				pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton);
 			});
 		}
 
@@ -272,7 +317,7 @@ public class Main extends Application {
 		@Override
 		public void handle(ActionEvent event) {
 			count = 0;
-			filename = "Story5Score.txt";
+			filename = "Story2Score.txt";
 			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
 			try {
 				Tree n = new Tree(noahFile);
@@ -283,10 +328,7 @@ public class Main extends Application {
 		}
 	}
 
-	public void score() throws FileNotFoundException {
-		name = scoreText.getText();
-		scoreSheet(count, name, filename);
-	}
+
 
 	class exit implements EventHandler<ActionEvent> {
 
@@ -296,14 +338,86 @@ public class Main extends Application {
 		}
 
 	}
+	
+	public void score() throws FileNotFoundException {
+		name = scoreText.getText();
+		if (name.equalsIgnoreCase("")) {
+			name = "aaa";
+		}
+		scoreSheet(count, name, filename);
+	}
+	
+	private void openFile(File file) {
+		try {
+			loadFile(file);
+		} catch (IOException ex) {
+			Logger.getLogger(FileChooserSample.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+
+	private void loadFile(File f) throws IOException {
+		Scanner sc = new Scanner(f);
+		String[] check = sc.nextLine().split(",");
+		String rootName = check[0];
+		int x = Integer.parseInt(check[1]);
+		int y = Integer.parseInt(check[2]);
+		count = Integer.parseInt(check[3]);
+		Tree temp = null;
+		if (check[0].equalsIgnoreCase("paul")) {
+			try {
+				temp = new Tree(paulFile);
+				newRoom(temp, new Point(x, y));
+			} catch (FileNotFoundException e) {
+			}
+		} else if (check[0].equalsIgnoreCase("noah")) {
+			try {
+				temp = new Tree(noahFile);
+				newRoom(temp, new Point(x,y));
+			} catch (FileNotFoundException e) {
+			}
+		} else if (check[0].equalsIgnoreCase("logan")) {
+			try {
+				temp = new Tree(loganFile);
+				newRoom(temp, new Point(x, y));
+			} catch (FileNotFoundException e) {
+			}
+		} else if (check[0].equalsIgnoreCase("zack")) {
+			try {
+				temp = new Tree(zackFile);
+				newRoom(temp, new Point(x, y));
+			} catch (FileNotFoundException e) {
+			}
+		} else if (check[0].equalsIgnoreCase("brad")) {
+			try {
+				temp = new Tree(bradFile);
+				newRoom(temp, new Point(x, y));
+			} catch (FileNotFoundException e) {
+			}
+		} else {
+			reset reset = new reset();
+			reset.handle(null);
+		}
+
+	}
+
+	private void SaveFile(File f, String name, Point p, int i) throws IOException {
+		PrintWriter pw = new PrintWriter(f);
+		pw.print(name);
+		pw.print("," + ((int) p.getX()) + "," + ((int) p.getX()) + ",");
+		pw.print(i);
+		pw.close();
+	}
+
 
 	public void newRoom(Tree tree, Point pos) {
 		int x = (int) pos.getX();
 		int y = (int) pos.getY();
 		Node n = tree.getNode(pos);
+		treeName = tree.getName();
+		global = pos;
 		// Remove everything from the pane
 		pane.getChildren().clear();
-		pane.getChildren().add(restart);
+		pane.getChildren().addAll(restart, openButton, saveButton);
 		// Creates new "Room" with message and choices
 		Text txt = new Text(n.getMessage());
 		Button buttR = new Button(n.getButtonR()); // right choice
@@ -338,9 +452,11 @@ public class Main extends Application {
 			count++;
 			pane.getChildren().addAll(txt, buttR, buttL);
 			if (n.getButtonL() == null) {
+				count = count - 1;
 				pane.getChildren().remove(buttL);
 			}
 			if (n.getButtonR() == null) {
+				count = count - 1;
 				pane.getChildren().remove(buttR);
 			}
 		}
