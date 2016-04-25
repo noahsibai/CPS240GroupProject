@@ -1,12 +1,18 @@
-Somthin screwed in add
 Travel to the West, heading to the unknown lands/Turn around/Keep Going/
-The clouds suddenly get dark, covering the sun and setting an eerie darkness over the land. It looks like it's going to rain./Head to the woods/Continue on the road looking for a town/l
+The clouds suddenly get dark, covering the sun and setting an eerie darkness over the land. It looks like it's going to rain./Head to the woods/Continue looking for a town/l
 The woods provide coverage from the rain, but who knows what is in these woods.It's dark and eerie, the wind is blowing.  You have a flashlight in your backpack.  Do you want to use it?/Yes, use it/No, don't need it/ll
 Looking around, you find a small cabin in the woods.There aren't any lights on and one of the windows are smashed in./Go up to the house/Head to the exit/lll
-You hear a scream from inside the house!/Help the person who screamed!/Turn and run!/llll
+You hear a scream from inside the house!/Help who screamed!/Turn and run!/llll
 In the house there is an upstairs and basement. Where do you go?/Look upstairs/Look in the basement/lllll
-The stairs going up only lead to one room, and it is empty./Head downstairs to the basement/This seems sketchy! Leave the house!/llllll
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/lllllll
+The stairs going up only lead to one room, and it is empty./Head to the basement/Too sketchy! Leave the house!/llllll
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of the house!/lllllll
+You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/null/Next/llllllll
+You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/llllllllr
+You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/llllllllrr
+As you are panicking and trying to escape the house from the killer, you bust out of the door and stumble onto the back porch.../Next/null/llllllllrrl
+You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/llllllllrrll
+As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/llllllllrrr
+You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/llllllllrrrr
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/lllllllr
 You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/lllllllrr
 As you are panicking and trying to escape the house from the killer, you bust out of the door and stumble onto the back porch.../Next/null/lllllllrrl
@@ -19,7 +25,7 @@ As you are panicking and trying to escape the house from the killer, you bust ou
 You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/llllllrrll
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/llllllrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/llllllrrrr
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Get out of this creepy house!/Check on the figure/lllllr
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Get out of the house!/Check on the figure/lllllr
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../Next/null/lllllrl
 You turn around and see a masked figure with a knife!/Turn and fight!/Try to break out!/lllllrll
 As you charge towards the masked figure you stumble and fall onto the floor.../Next/null/lllllrlll
@@ -33,9 +39,9 @@ As you are panicking and trying to escape the house from the killer, you bust ou
 You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/lllllrrrrll
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/lllllrrrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/lllllrrrrrr
-Upon exiting the woods, you are tackled to the ground!  A woman is on top of you screaming about helping her friend!She holds you at knife-point and asks if you heard the scream./Admit to hearing the scream/Lie saying you didn't hear the scream/llllr
+Upon exiting the woods, you are tackled to the ground!A woman is on top of you screaming about helping her friend!She holds you at knife-point and asks if you heard the scream./Admit to hearing the scream/Lie about the scream/llllr
 She tells you that you have to help her go find her friend.  She stands you up and leads you back in to the woods with the knife at your back.  You are forced to go into the cabin./Next/null/llllrl
-You walk forward into the dark hallway, feeling the wall as you go so you don't trip.You pause... You don't hear the woman behind you.  You turn around and she isn't there anymore.../Go to the back door! Get out!/Look for the woman/llllrll
+You walk forward into the dark hallway, feeling the wall as you go so you don't trip.You pause... You don't hear the woman behind you.  You turn around and she isn't there anymore.../Go to the back door!/Look for the woman/llllrll
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/llllrlll
 You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/llllrlllr
 As you are panicking and trying to escape the house from the killer, you bust out of the door and stumble onto the back porch.../Next/null/llllrlllrl
@@ -43,8 +49,8 @@ You try crawling away off of the porch, and suddenly feel a shooting pain in you
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/llllrlllrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/llllrlllrrr
 In the house there is an upstairs and basement. Where do you go?/Look upstairs/Look in the basement/llllrllr
-The stairs going up only lead to one room, and it is empty./Head downstairs to the basement/This seems sketchy! Leave the house!/llllrllrl
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/llllrllrll
+The stairs going up only lead to one room, and it is empty./Head to the basement/Too sketchy! Leave the house!/llllrllrl
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of the house!/llllrllrll
 You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/null/Next/llllrllrlll
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/llllrllrlllr
 You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/llllrllrlllrr
@@ -64,7 +70,7 @@ As you are panicking and trying to escape the house from the killer, you bust ou
 You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/llllrllrlrrll
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/llllrllrlrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/llllrllrlrrrr
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/llllrllrr
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of the house!/llllrllrr
 You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/null/Next/llllrllrrl
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/llllrllrrlr
 You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/llllrllrrlrr
@@ -79,7 +85,7 @@ You try crawling away off of the porch, and suddenly feel a shooting pain in you
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/llllrllrrrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/llllrllrrrrrr
 She calls you a liar!  She stands you up and leads you back in to the woods with the knife at your back.Now you have to go into the cabin./null/Next/llllrr
-You walk forward into the dark hallway, feeling the wall as you go so you don't trip.You pause... You don't hear the woman behind you.  You turn around and she isn't there anymore.../Go to the back door! Get out!/Look for the woman/llllrrr
+You walk forward into the dark hallway, feeling the wall as you go so you don't trip.You pause... You don't hear the woman behind you.  You turn around and she isn't there anymore.../Go to the back door!/Look for the woman/llllrrr
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../Next/null/llllrrrl
 You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/llllrrrll
 As you are panicking and trying to escape the house from the killer, you bust out of the door and stumble onto the back porch.../Next/null/llllrrrlll
@@ -87,8 +93,8 @@ You try crawling away off of the porch, and suddenly feel a shooting pain in you
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/llllrrrllr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/llllrrrllrr
 In the house there is an upstairs and basement. Where do you go?/Look upstairs/Look in the basement/llllrrrr
-The stairs going up only lead to one room, and it is empty./Head downstairs to the basement/This seems sketchy! Leave the house!/llllrrrrl
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/llllrrrrll
+The stairs going up only lead to one room, and it is empty./Head to the basement/Too sketchy! Leave the house!/llllrrrrl
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of the house!/llllrrrrll
 You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/null/Next/llllrrrrlll
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/llllrrrrlllr
 You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/llllrrrrlllrr
@@ -108,7 +114,7 @@ As you are panicking and trying to escape the house from the killer, you bust ou
 You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/llllrrrrlrrll
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/llllrrrrlrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/llllrrrrlrrrr
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/llllrrrrr
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this house!/llllrrrrr
 You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/null/Next/llllrrrrrl
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/llllrrrrrlr
 You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/llllrrrrrlrr
@@ -122,9 +128,9 @@ As you are panicking and trying to escape the house from the killer, you bust ou
 You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/llllrrrrrrrll
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/llllrrrrrrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/llllrrrrrrrrr
-You are almost to the exit of the woods, when you suddenly hear a scream, coming from the eerie cabin from before./Run back to the cabin and help!/Screw who that was. Not my problem/lllr
+You are almost to the exit of the woods, when you suddenly hear a scream, coming from the eerie cabin from before./Run to the cabin and help!/Screw them, not my problem/lllr
 In the house there is an upstairs and basement. Where do you go?/Look in the basement/Look upstairs/lllrl
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Get out of this creepy house!/Check on the figure/lllrll
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Get out of the house!/Check on the figure/lllrll
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../Next/null/lllrlll
 You turn around and see a masked figure with a knife!/Turn and fight!/Try to break out!/lllrllll
 As you charge towards the masked figure you stumble and fall onto the floor.../Next/null/lllrlllll
@@ -138,8 +144,8 @@ As you are panicking and trying to escape the house from the killer, you bust ou
 You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/lllrllrrrll
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/lllrllrrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/lllrllrrrrr
-The stairs going up only lead to one room, and it is empty./Head downstairs to the basement/This seems sketchy! Leave the house!/lllrlr
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/lllrlrl
+The stairs going up only lead to one room, and it is empty./Head down to the basement/Too sketchy! Leave the house!/lllrlr
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of the house!/lllrlrl
 You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/null/Next/lllrlrll
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/lllrlrllr
 You turn around and see a masked figure with a knife!/Turn and fight!/Try to break out!/lllrlrllrr
@@ -159,9 +165,9 @@ As you are panicking and trying to escape the house from the killer, you bust ou
 You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/lllrlrrrll
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/lllrlrrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/lllrlrrrrr
-Upon exiting the woods, you are tackled to the ground!  A woman is on top of you screaming about helping her friend!She holds you at knife-point and asks if you heard the scream./Admit to hearing the scream/Lie saying you didn't hear the scream/lllrr
+Upon exiting the woods, you are tackled to the ground!A woman is on top of you screaming about helping her friend!She holds you at knife-point and asks if you heard the scream./Admit to hearing the scream/Lie about the scream/lllrr
 She tells you that you have to help her go find her friend.  She stands you up and leads you back in to the woods with the knife at your back.  You are forced to go into the cabin./Next/null/lllrrl
-You walk forward into the dark hallway, feeling the wall as you go so you don't trip.You pause... You don't hear the woman behind you.  You turn around and she isn't there anymore.../Go to the back door! Get out!/Look for the woman/lllrrll
+You walk forward into the dark hallway, feeling the wall as you go so you don't trip.You pause... You don't hear the woman behind you.  You turn around and she isn't there anymore.../Go to the back door!/Look for the woman/lllrrll
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../Next/null/lllrrlll
 You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/lllrrllll
 As you are panicking and trying to escape the house from the killer, you bust out of the door and stumble onto the back porch.../Next/null/lllrrlllll
@@ -169,9 +175,9 @@ You try crawling away off of the porch, and suddenly feel a shooting pain in you
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/lllrrllllr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/lllrrllllrr
 In the house there is an upstairs and basement. Where do you go?/Look upstairs/Look in the basement/lllrrllr
-The stairs going up only lead to one room, and it is empty./Head downstairs to the basement/This seems sketchy! Leave the house!/lllrrllrl
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/lllrrllrll
-You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/null/Next/lllrrllrlll
+The stairs going up only lead to one room, and it is empty./Head to the basement/Too sketchy! Leave the house!/lllrrllrl
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of the house!/lllrrllrll
+You creep slowly to the figure to find a dead woman!Get out of this creepy house!/null/Next/lllrrllrlll
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/lllrrllrlllr
 You turn around and see a masked figure with a knife!/Turn and fight!/Try to break out!/lllrrllrlllrr
 As you charge towards the masked figure you stumble and fall onto the floor.../Next/null/lllrrllrlllrrl
@@ -190,7 +196,7 @@ As you are panicking and trying to escape the house from the killer, you bust ou
 You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/lllrrllrlrrll
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/lllrrllrlrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/lllrrllrlrrrr
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/lllrrllrr
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of the house!/lllrrllrr
 You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/Next/null/lllrrllrrl
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/lllrrllrrll
 You turn around and see a masked figure with a knife!/Turn and fight!/Try to break out!/lllrrllrrllr
@@ -205,7 +211,7 @@ You try crawling away off of the porch, and suddenly feel a shooting pain in you
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/lllrrllrrrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/lllrrllrrrrrr
 She calls you a liar!  She stands you up and leads you back in to the woods with the knife at your back.Now you have to go into the cabin./null/Next/lllrrr
-You walk forward into the dark hallway, feeling the wall as you go so you don't trip.You pause... You don't hear the woman behind you.  You turn around and she isn't there anymore.../Go to the back door! Get out!/Look for the woman/lllrrrr
+You walk forward into the dark hallway, feeling the wall as you go so you don't trip.You pause... You don't hear the woman behind you.  You turn around and she isn't there anymore.../Go to the back door!/Look for the woman/lllrrrr
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../Next/null/lllrrrrl
 You turn around and see a masked figure with a knife!/Try to break out!/Turn and fight!/lllrrrrll
 As you are panicking and trying to escape the house from the killer, you bust out of the door and stumble onto the back porch.../Next/null/lllrrrrlll
@@ -213,8 +219,8 @@ You try crawling away off of the porch, and suddenly feel a shooting pain in you
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/lllrrrrllr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/lllrrrrllrr
 In the house there is an upstairs and basement. Where do you go?/Look upstairs/Look in the basement/lllrrrrr
-The stairs going up only lead to one room, and it is empty./Head downstairs to the basement/This seems sketchy! Leave the house!/lllrrrrrl
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/lllrrrrrll
+The stairs going up only lead to one room, and it is empty./Head to the basement/Too sketchy! Leave the house!/lllrrrrrl
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of the house!/lllrrrrrll
 You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/null/Next/lllrrrrrlll
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/lllrrrrrlllr
 You turn around and see a masked figure with a knife!/Turn and fight!/Try to break out!/lllrrrrrlllrr
@@ -234,7 +240,7 @@ As you are panicking and trying to escape the house from the killer, you bust ou
 You try crawling away off of the porch, and suddenly feel a shooting pain in your back.The masked murderer has stabbed you in the spine, leaving you paralyzed and to die on the back porch.../null/null/lllrrrrrlrrll
 As you charge towards the masked figure you stumble and fall onto the floor.../null/Next/lllrrrrrlrrr
 You roll over and see the masked figure with the knife above you!You see the knife come down towards you, and everything goes black.../null/null/lllrrrrrlrrrr
-The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of this creepy house!/lllrrrrrr
+The basement is dimly lit.  You see a figure leaning against the wall in the corner of the room.../Check on the figure/Get out of the house!/lllrrrrrr
 You creep slowly to the figure to find a dead woman!  Get out of this creepy house!/Next/null/lllrrrrrrl
 You make it to the back door but it is locked from the outside.You hear a creak in the floorboards from behind you.../null/Next/lllrrrrrrll
 You turn around and see a masked figure with a knife!/Turn and fight!/Try to break out!/lllrrrrrrllr

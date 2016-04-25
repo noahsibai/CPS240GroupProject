@@ -209,7 +209,7 @@ public class Main extends Application {
 			filename = "Story1Score.txt";
 			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
 			try {
-				Tree n = new Tree(noahFile);
+				Tree n = new Tree(loganFile);
 				newRoom(n, new Point(0, 0));
 			} catch (FileNotFoundException e) {
 			}
