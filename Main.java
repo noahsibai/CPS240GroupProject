@@ -43,6 +43,8 @@ public class Main extends Application {
 	Button Zack = null;
 	Button load = null;
 	Button exit = null;
+	Button close = new Button("x");
+	Button mini = new Button("_");
 	static String fileName;
 	TextField scoreText = new TextField();
 	File zackFile = new File("zackfile.txt");
@@ -65,45 +67,62 @@ public class Main extends Application {
 	Tree temp;
 	int x;
 	int y;
+	Text startText = new Text("Please choose a story");
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		pane.getChildren().clear();
+		close.setScaleX(1.5);
+		close.setScaleY(1.5);
+		close.setLayoutX(primaryScreenBounds.getWidth()-27);
+		mini.setScaleX(1.5);
+		mini.setScaleY(1.5);
+		mini.setLayoutX(primaryScreenBounds.getWidth()-59);
+		startText.setStyle("-fx-font-size:50;");
+		startText.setLayoutX((primaryScreenBounds.getWidth() / 2)-250);
+		startText.setLayoutY((primaryScreenBounds.getHeight() / 2) - 100);
 		exit = new Button("Exit");
 		exit.setScaleX(3);
 		exit.setScaleY(3);
 		exit.setLayoutX((primaryScreenBounds.getWidth() / 2));
 		exit.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
+		exit.setStyle("-fx-background-color:white;");
 		restart = new Button("Restart");
 		restart.setLayoutX((primaryScreenBounds.getWidth() / 2) + 400);
 		restart.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
 		restart.setScaleX(3);
 		restart.setScaleY(3);
+		restart.setStyle("-fx-background-color:white;");
 		Logan = new Button("Story 1");
 		Logan.setLayoutX((primaryScreenBounds.getWidth() / 9) + 25);
 		Logan.setLayoutY(primaryScreenBounds.getHeight() / 2);
 		Logan.setScaleX(3);
 		Logan.setScaleY(3);
+		Logan.setStyle("-fx-background-color:white;");
 		Noah = new Button("Story 2");
 		Noah.setLayoutX((primaryScreenBounds.getWidth() / 3.5) + 25);
 		Noah.setLayoutY(primaryScreenBounds.getHeight() / 2);
 		Noah.setScaleX(3);
 		Noah.setScaleY(3);
+		Noah.setStyle("-fx-background-color:white;");
 		Bradb = new Button("Story 3");
 		Bradb.setLayoutX((primaryScreenBounds.getWidth() / 2.25) + 40);
 		Bradb.setLayoutY(primaryScreenBounds.getHeight() / 2);
 		Bradb.setScaleX(3);
 		Bradb.setScaleY(3);
+		Bradb.setStyle("-fx-background-color:white;");
 		Paul = new Button("Story 4");
 		Paul.setLayoutX((primaryScreenBounds.getWidth() / 1.6) + 25);
 		Paul.setLayoutY(primaryScreenBounds.getHeight() / 2);
 		Paul.setScaleX(3);
 		Paul.setScaleY(3);
+		Paul.setStyle("-fx-background-color:white;");
 		Zack = new Button("Story 5");
 		Zack.setLayoutX((primaryScreenBounds.getWidth() - 250));
 		Zack.setLayoutY(primaryScreenBounds.getHeight() / 2);
 		Zack.setScaleX(3);
 		Zack.setScaleY(3);
+		Zack.setStyle("-fx-background-color:white;");
 		Logan logan = new Logan();
 		Logan.setOnAction(logan);
 		Noah noah = new Noah();
@@ -116,8 +135,24 @@ public class Main extends Application {
 		Zack.setOnAction(zack);
 		reset reset = new reset();
 		restart.setOnAction(reset);
+		close.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent event) {
+				System.exit(0);
+			}
+			
+		});
+		mini.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent event) {
+				stage.setFullScreen(false);
+				pane.getChildren().removeAll(mini,close);
+			}
+			
+		});
 		saveButton.setLayoutX(primaryScreenBounds.getWidth() - (primaryScreenBounds.getWidth() - 75));
-		saveButton.setLayoutY(primaryScreenBounds.getHeight() - (primaryScreenBounds.getHeight() - 1));
+		saveButton.setLayoutY(primaryScreenBounds.getHeight() - (primaryScreenBounds.getHeight() - .1));
 		openButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(final ActionEvent e) {
@@ -130,18 +165,18 @@ public class Main extends Application {
 		saveButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(final ActionEvent e) {
-				if(treeName.equalsIgnoreCase("logan")){
-					fileName = "story1save.txt";	
-				}else if(treeName.equalsIgnoreCase("noah")){
+				if (treeName.equalsIgnoreCase("logan")) {
+					fileName = "story1save.txt";
+				} else if (treeName.equalsIgnoreCase("noah")) {
 					fileName = "story2save.txt";
-				}else if(treeName.equalsIgnoreCase("brad")){
+				} else if (treeName.equalsIgnoreCase("brad")) {
 					fileName = "story3save.txt";
-				}else if(treeName.equalsIgnoreCase("paul")){
+				} else if (treeName.equalsIgnoreCase("paul")) {
 					fileName = "story4save.txt";
-				}else if(treeName.equalsIgnoreCase("zack")){
+				} else if (treeName.equalsIgnoreCase("zack")) {
 					fileName = "story5save.txt";
-				}else{
-					fileName = "";
+				} else {
+					return;
 				}
 				File file = new File(fileName);
 				if (file != null) {
@@ -160,9 +195,11 @@ public class Main extends Application {
 				}
 			}
 		});
-		pane.getChildren().addAll(restart, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton);
+		pane.getChildren().addAll(restart, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton, startText,close,mini);
 		Scene sc = new Scene(pane, primaryScreenBounds.getWidth(), primaryScreenBounds.getHeight());
+		pane.setStyle("-fx-background-color: turquoise;");
 		stage.setTitle("Welcome to the Game");
+		stage.setFullScreen(true);
 		stage.setScene(sc);
 		stage.setMaximized(true);
 		stage.show();
@@ -172,9 +209,19 @@ public class Main extends Application {
 		@Override
 		public void handle(ActionEvent arg0) {
 			pane.getChildren().clear();
+			close.setScaleX(1.5);
+			close.setScaleY(1.5);
+			close.setLayoutX(primaryScreenBounds.getWidth()-27);
+			mini.setScaleX(1.5);
+			mini.setScaleY(1.5);
+			mini.setLayoutX(primaryScreenBounds.getWidth()-59);
+			startText.setStyle("-fx-font-size:50;");
+			startText.setLayoutX((primaryScreenBounds.getWidth() / 2)-250);
+			startText.setLayoutY((primaryScreenBounds.getHeight() / 2) - 100);
 			exit = new Button("Exit");
 			exit.setScaleX(3);
 			exit.setScaleY(3);
+			exit.setStyle("-fx-background-color:white;");
 			exit.setLayoutX((primaryScreenBounds.getWidth() / 2));
 			exit.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
 			restart = new Button("Restart");
@@ -182,31 +229,37 @@ public class Main extends Application {
 			restart.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
 			restart.setScaleX(3);
 			restart.setScaleY(3);
+			restart.setStyle("-fx-background-color:white;");
 			Logan = new Button("Story 1");
 			Logan.setLayoutX((primaryScreenBounds.getWidth() / 9) + 25);
 			Logan.setLayoutY(primaryScreenBounds.getHeight() / 2);
 			Logan.setScaleX(3);
 			Logan.setScaleY(3);
+			Logan.setStyle("-fx-background-color:white;");
 			Noah = new Button("Story 2");
 			Noah.setLayoutX((primaryScreenBounds.getWidth() / 3.5) + 25);
 			Noah.setLayoutY(primaryScreenBounds.getHeight() / 2);
 			Noah.setScaleX(3);
 			Noah.setScaleY(3);
+			Noah.setStyle("-fx-background-color:white;");
 			Bradb = new Button("Story 3");
 			Bradb.setLayoutX((primaryScreenBounds.getWidth() / 2.25) + 40);
 			Bradb.setLayoutY(primaryScreenBounds.getHeight() / 2);
 			Bradb.setScaleX(3);
 			Bradb.setScaleY(3);
+			Bradb.setStyle("-fx-background-color:white;");
 			Paul = new Button("Story 4");
 			Paul.setLayoutX((primaryScreenBounds.getWidth() / 1.6) + 25);
 			Paul.setLayoutY(primaryScreenBounds.getHeight() / 2);
 			Paul.setScaleX(3);
 			Paul.setScaleY(3);
+			Paul.setStyle("-fx-background-color:white;");
 			Zack = new Button("Story 5");
 			Zack.setLayoutX((primaryScreenBounds.getWidth() - 250));
 			Zack.setLayoutY(primaryScreenBounds.getHeight() / 2);
 			Zack.setScaleX(3);
 			Zack.setScaleY(3);
+			Zack.setStyle("-fx-background-color:white;");
 			Logan logan = new Logan();
 			Logan.setOnAction(logan);
 			Noah noah = new Noah();
@@ -219,7 +272,7 @@ public class Main extends Application {
 			Zack.setOnAction(zack);
 			reset reset = new reset();
 			restart.setOnAction(reset);
-			pane.getChildren().addAll(restart, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton);
+			pane.getChildren().addAll(restart, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton,startText,close,mini);
 
 		}
 
@@ -377,17 +430,19 @@ public class Main extends Application {
 		global = pos;
 		// Remove everything from the pane
 		pane.getChildren().clear();
-		pane.getChildren().addAll(restart, openButton, saveButton);
+		pane.getChildren().addAll(restart, openButton, saveButton,close,mini);
 		// Creates new "Room" with message and choices
 		Text txt = new Text(n.getMessage());
 		Button buttR = new Button(n.getButtonR()); // right choice
 		Button buttL = new Button(n.getButtonL()); // left Choice
 
+		buttL.setStyle("-fx-background-color: white;");
 		buttL.setScaleX(3);
 		buttL.setScaleY(3);
 		buttL.setLayoutX((primaryScreenBounds.getWidth() / 3) - 100);
 		buttL.setLayoutY((primaryScreenBounds.getHeight() / 2));
 
+		buttR.setStyle("-fx-background-color: white;");
 		buttR.setScaleX(3);
 		buttR.setScaleY(3);
 		buttR.setLayoutX((primaryScreenBounds.getWidth() / 1.5) + 75);
