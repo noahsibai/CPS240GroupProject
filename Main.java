@@ -33,26 +33,23 @@ public class Main extends Application {
 		launch(args);
 	}
 
-	private Desktop desktop = Desktop.getDesktop();
+	// private Desktop desktop = Desktop.getDesktop();
 	Pane pane = new Pane();
 	Button Logan = null;
-	Text startText = null;
 	Button restart = null;
 	Button Noah = null;
 	Button Bradb = null;
 	Button Paul = null;
 	Button Zack = null;
-	String name = null;
 	Button load = null;
-	static String filename = null;
 	Button exit = null;
+	static String fileName;
 	TextField scoreText = new TextField();
 	File zackFile = new File("zackfile.txt");
 	File loganFile = new File("loganfile.txt");
 	File noahFile = new File("noahfile.txt");
 	File bradFile = new File("bradfile.txt");
 	File paulFile = new File("paulfile.txt");
-	int count = 0;
 	Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	final FileChooser fileChooser = new FileChooser();
 	final Button openButton = new Button("Open a file");
@@ -71,29 +68,115 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Text namePrompt = new Text("Please enter your initials");
-		namePrompt.setLayoutX((primaryScreenBounds.getWidth() / 2) - 90);
-		namePrompt.setLayoutY((primaryScreenBounds.getWidth() / 2) - 275);
-		scoreText.setLayoutX((primaryScreenBounds.getWidth() / 2) - 100);
-		scoreText.setLayoutY((primaryScreenBounds.getWidth() / 2) - 250);
-		Button enterName = new Button("Enter");
-		enterName.setLayoutX((primaryScreenBounds.getWidth() / 2) - 50);
-		enterName.setLayoutY((primaryScreenBounds.getWidth() / 2) - 150);
-		enterName.setScaleX(3);
-		enterName.setScaleY(3);
-		pane.getChildren().addAll(namePrompt, scoreText, enterName);
-		enterName.setOnAction((ActionEvent e) -> {
-			name = scoreText.getText();
+		pane.getChildren().clear();
+		exit = new Button("Exit");
+		exit.setScaleX(3);
+		exit.setScaleY(3);
+		exit.setLayoutX((primaryScreenBounds.getWidth() / 2));
+		exit.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
+		restart = new Button("Restart");
+		restart.setLayoutX((primaryScreenBounds.getWidth() / 2) + 400);
+		restart.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
+		restart.setScaleX(3);
+		restart.setScaleY(3);
+		Logan = new Button("Story 1");
+		Logan.setLayoutX((primaryScreenBounds.getWidth() / 9) + 25);
+		Logan.setLayoutY(primaryScreenBounds.getHeight() / 2);
+		Logan.setScaleX(3);
+		Logan.setScaleY(3);
+		Noah = new Button("Story 2");
+		Noah.setLayoutX((primaryScreenBounds.getWidth() / 3.5) + 25);
+		Noah.setLayoutY(primaryScreenBounds.getHeight() / 2);
+		Noah.setScaleX(3);
+		Noah.setScaleY(3);
+		Bradb = new Button("Story 3");
+		Bradb.setLayoutX((primaryScreenBounds.getWidth() / 2.25) + 40);
+		Bradb.setLayoutY(primaryScreenBounds.getHeight() / 2);
+		Bradb.setScaleX(3);
+		Bradb.setScaleY(3);
+		Paul = new Button("Story 4");
+		Paul.setLayoutX((primaryScreenBounds.getWidth() / 1.6) + 25);
+		Paul.setLayoutY(primaryScreenBounds.getHeight() / 2);
+		Paul.setScaleX(3);
+		Paul.setScaleY(3);
+		Zack = new Button("Story 5");
+		Zack.setLayoutX((primaryScreenBounds.getWidth() - 250));
+		Zack.setLayoutY(primaryScreenBounds.getHeight() / 2);
+		Zack.setScaleX(3);
+		Zack.setScaleY(3);
+		Logan logan = new Logan();
+		Logan.setOnAction(logan);
+		Noah noah = new Noah();
+		Noah.setOnAction(noah);
+		Brad brad = new Brad();
+		Bradb.setOnAction(brad);
+		Paul paul = new Paul();
+		Paul.setOnAction(paul);
+		Zack zack = new Zack();
+		Zack.setOnAction(zack);
+		reset reset = new reset();
+		restart.setOnAction(reset);
+		saveButton.setLayoutX(primaryScreenBounds.getWidth() - (primaryScreenBounds.getWidth() - 75));
+		saveButton.setLayoutY(primaryScreenBounds.getHeight() - (primaryScreenBounds.getHeight() - 1));
+		openButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(final ActionEvent e) {
+				File file = fileChooser.showOpenDialog(stage);
+				if (file != null) {
+					openFile(file);
+				}
+			}
+		});
+		saveButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(final ActionEvent e) {
+				if(treeName.equalsIgnoreCase("logan")){
+					fileName = "story1save.txt";	
+				}else if(treeName.equalsIgnoreCase("noah")){
+					fileName = "story2save.txt";
+				}else if(treeName.equalsIgnoreCase("brad")){
+					fileName = "story3save.txt";
+				}else if(treeName.equalsIgnoreCase("paul")){
+					fileName = "story4save.txt";
+				}else if(treeName.equalsIgnoreCase("zack")){
+					fileName = "story5save.txt";
+				}else{
+					fileName = "";
+				}
+				File file = new File(fileName);
+				if (file != null) {
+					try {
+						SaveFile(file, treeName, global);
+						Text save = new Text("You saved a file called " + fileName
+								+ ",\nit is in the directory where you saved the application.");
+						save.setStyle("-fx-font-size:15;");
+						save.setLayoutX((primaryScreenBounds.getWidth() / 2) - 675);
+						save.setLayoutY((primaryScreenBounds.getHeight() / 2) - 300);
+						pane.getChildren().add(save);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
+		pane.getChildren().addAll(restart, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton);
+		Scene sc = new Scene(pane, primaryScreenBounds.getWidth(), primaryScreenBounds.getHeight());
+		stage.setTitle("Welcome to the Game");
+		stage.setScene(sc);
+		stage.setMaximized(true);
+		stage.show();
+	}
+
+	class reset implements EventHandler<ActionEvent> {
+		@Override
+		public void handle(ActionEvent arg0) {
 			pane.getChildren().clear();
 			exit = new Button("Exit");
 			exit.setScaleX(3);
 			exit.setScaleY(3);
 			exit.setLayoutX((primaryScreenBounds.getWidth() / 2));
 			exit.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
-			startText = new Text("Please Choose a Story Line");
-			startText.setStyle("-fx-font-size:50;");
-			startText.setLayoutX((primaryScreenBounds.getWidth() / 2) - 300);
-			startText.setLayoutY(250);
 			restart = new Button("Restart");
 			restart.setLayoutX((primaryScreenBounds.getWidth() / 2) + 400);
 			restart.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
@@ -136,113 +219,8 @@ public class Main extends Application {
 			Zack.setOnAction(zack);
 			reset reset = new reset();
 			restart.setOnAction(reset);
+			pane.getChildren().addAll(restart, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton);
 
-			saveButton.setLayoutX(primaryScreenBounds.getWidth() - (primaryScreenBounds.getWidth() - 75));
-			saveButton.setLayoutY(primaryScreenBounds.getHeight() - (primaryScreenBounds.getHeight() - 1));
-			openButton.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(final ActionEvent e) {
-					File file = fileChooser.showOpenDialog(stage);
-					if (file != null) {
-						openFile(file);
-					}
-				}
-			});
-			saveButton.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(final ActionEvent e) {
-					File file = new File(treeName.concat("score.txt"));
-					if (file != null) {
-						try {
-							SaveFile(file, treeName, global, count);
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-					}
-				}
-			});
-			pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton);
-		});
-		Scene sc = new Scene(pane, primaryScreenBounds.getWidth(), primaryScreenBounds.getHeight());
-		stage.setTitle("Welcome to the Game");
-		stage.setScene(sc);
-		stage.setMaximized(true);
-		stage.show();
-	}
-
-	class reset implements EventHandler<ActionEvent> {
-		@Override
-		public void handle(ActionEvent arg0) {
-			pane.getChildren().clear();
-			Text namePrompt = new Text("Please enter your initials");
-			namePrompt.setLayoutX((primaryScreenBounds.getWidth() / 2) - 90);
-			namePrompt.setLayoutY((primaryScreenBounds.getWidth() / 2) - 275);
-			scoreText.setLayoutX((primaryScreenBounds.getWidth() / 2) - 100);
-			scoreText.setLayoutY((primaryScreenBounds.getWidth() / 2) - 250);
-			Button enterName = new Button("Enter");
-			enterName.setLayoutX((primaryScreenBounds.getWidth() / 2) - 50);
-			enterName.setLayoutY((primaryScreenBounds.getWidth() / 2) - 150);
-			enterName.setScaleX(3);
-			enterName.setScaleY(3);
-			pane.getChildren().addAll(namePrompt, scoreText, enterName);
-			enterName.setOnAction((ActionEvent e) -> {
-				name = scoreText.getText();
-				pane.getChildren().clear();
-				exit = new Button("Exit");
-				exit.setScaleX(3);
-				exit.setScaleY(3);
-				exit.setLayoutX((primaryScreenBounds.getWidth() / 2));
-				exit.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
-				startText = new Text("Please Choose a Story Line");
-				startText.setStyle("-fx-font-size:50;");
-				startText.setLayoutX((primaryScreenBounds.getWidth() / 2) - 300);
-				startText.setLayoutY(250);
-				restart = new Button("Restart");
-				restart.setLayoutX((primaryScreenBounds.getWidth() / 2) + 400);
-				restart.setLayoutY((primaryScreenBounds.getHeight() / 2) + 250);
-				restart.setScaleX(3);
-				restart.setScaleY(3);
-				Logan = new Button("Story 1");
-				Logan.setLayoutX((primaryScreenBounds.getWidth() / 9) + 25);
-				Logan.setLayoutY(primaryScreenBounds.getHeight() / 2);
-				Logan.setScaleX(3);
-				Logan.setScaleY(3);
-				Noah = new Button("Story 2");
-				Noah.setLayoutX((primaryScreenBounds.getWidth() / 3.5) + 25);
-				Noah.setLayoutY(primaryScreenBounds.getHeight() / 2);
-				Noah.setScaleX(3);
-				Noah.setScaleY(3);
-				Bradb = new Button("Story 3");
-				Bradb.setLayoutX((primaryScreenBounds.getWidth() / 2.25) + 40);
-				Bradb.setLayoutY(primaryScreenBounds.getHeight() / 2);
-				Bradb.setScaleX(3);
-				Bradb.setScaleY(3);
-				Paul = new Button("Story 4");
-				Paul.setLayoutX((primaryScreenBounds.getWidth() / 1.6) + 25);
-				Paul.setLayoutY(primaryScreenBounds.getHeight() / 2);
-				Paul.setScaleX(3);
-				Paul.setScaleY(3);
-				Zack = new Button("Story 5");
-				Zack.setLayoutX((primaryScreenBounds.getWidth() - 250));
-				Zack.setLayoutY(primaryScreenBounds.getHeight() / 2);
-				Zack.setScaleX(3);
-				Zack.setScaleY(3);
-				Logan logan = new Logan();
-				Logan.setOnAction(logan);
-				Noah noah = new Noah();
-				Noah.setOnAction(noah);
-				Brad brad = new Brad();
-				Bradb.setOnAction(brad);
-				Paul paul = new Paul();
-				Paul.setOnAction(paul);
-				Zack zack = new Zack();
-				Zack.setOnAction(zack);
-				reset reset = new reset();
-				restart.setOnAction(reset);
-
-				pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan, openButton, saveButton);
-			});
 		}
 
 	}
@@ -250,9 +228,7 @@ public class Main extends Application {
 	class Logan implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent arg0) {
-			count = 0;
-			filename = "Story1Score.txt";
-			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack);
 			try {
 				Tree n = new Tree(loganFile);
 				newRoom(n, new Point(0, 0));
@@ -266,9 +242,7 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
-			count = 0;
-			filename = "Story3Score.txt";
-			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack);
 			try {
 				Tree n = new Tree(bradFile);
 				newRoom(n, new Point(0, 0));
@@ -282,9 +256,7 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
-			count = 0;
-			filename = "Story4Score.txt";
-			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack);
 			try {
 				Tree n = new Tree(paulFile);
 				newRoom(n, new Point(0, 0));
@@ -298,9 +270,7 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
-			count = 0;
-			filename = "Story5Score.txt";
-			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack);
 			try {
 				Tree z = new Tree(zackFile);
 				newRoom(z, new Point(0, 0));
@@ -316,9 +286,7 @@ public class Main extends Application {
 
 		@Override
 		public void handle(ActionEvent event) {
-			count = 0;
-			filename = "Story2Score.txt";
-			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
+			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack);
 			try {
 				Tree n = new Tree(noahFile);
 				newRoom(n, new Point(0, 0));
@@ -328,8 +296,6 @@ public class Main extends Application {
 		}
 	}
 
-
-
 	class exit implements EventHandler<ActionEvent> {
 
 		@Override
@@ -338,20 +304,13 @@ public class Main extends Application {
 		}
 
 	}
-	
-	public void score() throws FileNotFoundException {
-		name = scoreText.getText();
-		if (name.equalsIgnoreCase("")) {
-			name = "aaa";
-		}
-		scoreSheet(count, name, filename);
-	}
-	
+
 	private void openFile(File file) {
 		try {
 			loadFile(file);
 		} catch (IOException ex) {
-			//Logger.getLogger(FileChooserSample.class.getName()).log(Level.SEVERE, null, ex);
+			System.out.println();
+			;
 		}
 	}
 
@@ -361,7 +320,6 @@ public class Main extends Application {
 		String rootName = check[0];
 		int x = Integer.parseInt(check[1]);
 		int y = Integer.parseInt(check[2]);
-		count = Integer.parseInt(check[3]);
 		Tree temp = null;
 		if (check[0].equalsIgnoreCase("paul")) {
 			try {
@@ -371,24 +329,28 @@ public class Main extends Application {
 			}
 		} else if (check[0].equalsIgnoreCase("noah")) {
 			try {
+
 				temp = new Tree(noahFile);
-				newRoom(temp, new Point(x,y));
+				newRoom(temp, new Point(x, y));
 			} catch (FileNotFoundException e) {
 			}
 		} else if (check[0].equalsIgnoreCase("logan")) {
 			try {
+
 				temp = new Tree(loganFile);
 				newRoom(temp, new Point(x, y));
 			} catch (FileNotFoundException e) {
 			}
 		} else if (check[0].equalsIgnoreCase("zack")) {
 			try {
+
 				temp = new Tree(zackFile);
 				newRoom(temp, new Point(x, y));
 			} catch (FileNotFoundException e) {
 			}
 		} else if (check[0].equalsIgnoreCase("brad")) {
 			try {
+
 				temp = new Tree(bradFile);
 				newRoom(temp, new Point(x, y));
 			} catch (FileNotFoundException e) {
@@ -400,14 +362,12 @@ public class Main extends Application {
 
 	}
 
-	private void SaveFile(File f, String name, Point p, int i) throws IOException {
+	private void SaveFile(File f, String name, Point p) throws IOException {
 		PrintWriter pw = new PrintWriter(f);
 		pw.print(name);
 		pw.print("," + ((int) p.getX()) + "," + ((int) p.getY()) + ",");
-		pw.print(i);
 		pw.close();
 	}
-
 
 	public void newRoom(Tree tree, Point pos) {
 		int x = (int) pos.getX();
@@ -438,25 +398,16 @@ public class Main extends Application {
 		txt.setStyle("-fx-font-size:25;");
 
 		if (n.getButtonL() == null && n.getButtonR() == null) {
-			count = count - 1;
-			try {
-				score();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			exit ex = new exit();
 			exit.setOnAction(ex);
 			pane.getChildren().addAll(txt, exit);
 		} else {
-			count++;
 			pane.getChildren().addAll(txt, buttR, buttL);
 			if (n.getButtonL() == null) {
-				count = count - 1;
 				pane.getChildren().remove(buttL);
 			}
 			if (n.getButtonR() == null) {
-				count = count - 1;
+
 				pane.getChildren().remove(buttR);
 			}
 		}
@@ -475,17 +426,4 @@ public class Main extends Application {
 
 	}
 
-	public void scoreSheet(int count, String name, String filename) throws FileNotFoundException {
-		// Add on exit
-		// Fix so when they don't put intitals it doesn't add
-
-		File fileName = new File(filename);
-
-		try (PrintWriter pw = new PrintWriter(new FileWriter(fileName, true));) {
-			pw.write(name + ", " + count + "\n");
-		} catch (Exception e1) {
-			e1.printStackTrace();
-
-		}
-	}
 }
