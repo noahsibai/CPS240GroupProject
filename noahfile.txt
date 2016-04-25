@@ -1,0 +1,78 @@
+You have a choice to chose your dream job. Race Car Driver or No Job/Race/No Job/
+You're a race car driver now. Quick!It's during a race and a car in front of you started flipping.Do you swerve left or right?/Left/Right/l
+The Car lands on top of you, and you die instantly/null/null/ll
+You barely make it out of the wreck.However your car is extremely damaged. There is 5 laps left!Do you stop and fix your car or try to finish the race as is?/Fix/Continue/lr
+You stop and get your car fixed,luckly for you so did everyone else. So you make it out first and finish the face in first place.Where do you go disney world or home with your family/Home/Disney/lrl
+You go home with your family.It is a peaceful night, and you are getting ready for bed.You get a phone call do you answer or not?/Answer/No/lrll
+You answer the phone and it is your best friend.He wants you to come hangout with him for the nightand celebrate your win. What do you do?/Go/Stay/lrlll
+You go out with your friend,and you are having the best night of your life.However you drink and drive andget in a accident where you and your best friend die.Don't Drink and Drive!/null/null/lrllll
+You wake up in the morning to 100 missed callsand text. You listen to your voicemail,and you find out that your best friend wife is in labor and your best friendis in jail. Do you go get your friendor do you leave him in jail to dealwith his punishment?/Leave Him/Go and get him/lrlllr
+You decide to do nothing and stay homebut your house catches on fire and you die./null/null/lrlllrl
+You go to the jail to bail your friend outand find out his bail is set at $50,000.Do you pay $50,000 to bail him out orleave him to go support his wife?/Pay/Go see the Wife/lrlllrr
+You pay his bail as you are walking out ofthe jail someone escapes and kills you./null/null/lrlllrrl
+On the way to the hospital, a semi-truck flipsand crushes your car and decapitates you./null/Continue/lrlllrrr
+To come back to life. Donald Trump and Hiliary Clintonare the nominees who do you vote for/Trump/Clinton/lrlllrrrr
+The whole universe exploded and everyone dies/null/null/lrlllrrrrl
+You wake up and everything before this was a dream. Luckily neither Trump or Clinton are PresidentDo you go and make breakfast or go for a run/Breakfast/Run/lrlllrrrrr
+You are carrying a knife and trip and fall.Killing you on impact/null/null/lrlllrrrrrl
+The Path splits do you want to go the right or left/Left/Right/lrlllrrrrrr
+The start of the apocalypse andzombies are runnning after youYou find a knife do you stop and try to get itor do keep running?/Stop/Run/lrlllrrrrrrl
+Just before you get attcked you get grabthe knife and continue runningaway. The next thing you know you are getting shot at.Do you try and hide or run right at the peopleshooting you?/Hide/Run at them/lrlllrrrrrrll
+You have been hiding for hours but youcan still here people in the distance.Do you sleep there or try and make it home?/Sleep/Home/lrlllrrrrrrlll
+After sleeping for a few hours youare woken up by a loud noise.Do you continue hiding or look for what made the noise?/Hide/Look/lrlllrrrrrrllll
+As your hiding a Zombies falls on top of youand kills you!/null/null/lrlllrrrrrrlllll
+You get up and see that there is a herd ofZombies coming to you. Do you run ortry to fight your through them?/Run/Fight/lrlllrrrrrrllllr
+You trip on a branch and fallthe zombies catch up to you and kill you./null/null/lrlllrrrrrrllllrl
+You run at the zombies and ther surround you and kill you. /null/null/lrlllrrrrrrllllrr
+You are on your way home when yourun into a big herd of zombies.You hear gun shots in the distance you go thereor continue going home/Towards/Home/lrlllrrrrrrlllr
+You go towards the gun shots as you get closer you see 5 peoplefighting off the zombies. There is an extra gun do you grab itand help them or steal the gun for yourself/Help/Steal/lrlllrrrrrrlllrl
+You pick up the gun and start firingat the zombies. Finally they are all dead and the peopleask if you would like to join them./Yes/No/lrlllrrrrrrlllrll
+They ask you if you have anywhere to hide.Do you take them to house or the high school?/Home/High School/lrlllrrrrrrlllrlll
+The govenment drops a bomb andeveryone dies/null/null/lrlllrrrrrrlllrllll
+You make it to the high school and you enter itand you and your group get attacked by other people and die/null/null/lrlllrrrrrrlllrlllr
+They get mad at you because you couldreally help them. They are also scared thatyou might kill them so they shoot you down./null/null/lrlllrrrrrrlllrllr
+You steal the gun but the people noticeand kill you/null/null/lrlllrrrrrrlllrlr
+You are on your way home and you falla zombie attacks you and you die/null/null/lrlllrrrrrrlllrr
+You get shot by the people and then they realised that you wern't a zombie.They fell bad but there is nothingthey can do now./null/null/lrlllrrrrrrllr
+A Zombie walks out in from of you can kills you.You could not protect your self.You should have grabed the knife/null/null/lrlllrrrrrrlr
+An escaped convict find you and kills youfor your belongings/null/null/lrlllrrrrrrr
+The call was one of those annoying things on the internetwhere if you don't like and share a ghost will come and haunt you,but this one was true and because you did not answera ghost haunted you at night and killed you and your family/null/null/lrllr
+You and your family are heading to Disney.On the way there, you see a sign for a freefestival with your favorite band,but you are limited on time. Do you stop for thefestival or keep going?/Festival/Keep Going/lrlr
+Your favorite band plays for hoursand you love every minute of it,but you are so happy that you diefrom a heart attack./null/null/lrlrl
+You make it to Disney and find out yourmom is in the hospital back home.Do you leave immediately or stay forone day and enjoy Disney?/Leave/Stay/lrlrr
+Your family wanted to stay thereso you hop on a plane and your make it to the hospital.You find out she needs a new kidney.Do you give her one of yours?/Yes/No/lrlrrl
+Something went wrong in sugery and you die./null/null/lrlrrll
+You don't give your mom your kidneybut luckly she gets better. Do you take her homeand take care of her or go back to Disney?/Home/Disney/lrlrrlr
+You are on your way to your moms homeand you get into a car acident and die/null/null/lrlrrlrl
+You are on a plane on your way back to Disneyand you plane crashes and kills everyone/null/null/lrlrrlrr
+Your mom died and you are so sad that youstayed there you die of a broken heart/null/null/lrlrrr
+You are just about to cross the finish lineand win, but your car stops because it ranout of oil, and your car blows up killing you/null/null/lrr
+Sense you do not have a job whatdo you want to do travel or stay home?/Travel/Stay/r
+Where do you want to go?/England/Mexico/rl
+You make it to england and get to your hotel.There is a pamphlet on the bed.Do you read it?/Yes/No/rll
+You read the pamphlet and it has an addfor free jetski lesson if you rent a jetski.Does that sound like fun?/Yes/No/rlll
+You go to the lesson and there is afreak actident where you die./null/null/rllll
+Do you go out and wander around?/Yes/No/rlllr
+You walk down a dark ally and get killed/null/null/rlllrl
+You get bored and go home/null/null/rlllrr
+You throw it on the floor and lay on your bed.When you get up you step on the pamphletand slip and fall hitting you headon the dresser. You died/null/null/rllr
+Are you older than 18?/Yes/No/rlr
+Then you are able to drink.Do you want to go to a bar?/Yes/No/rlrl
+You get really drunk at the barand someone convinces you to go clif divingand it doesn't end well for you/null/null/rlrll
+Do you want to go on an adventure with a tour group?/Yes/No/rlrlr
+You are going to the ocean andit is the first time you have been to one do you swim?/Yes/No! Sharks!/rlrlrl
+You get eaten by a shark.You should have stayed on shore./null/null/rlrlrll
+That was a good choice someonejust got attack by a shark. Your groupleaves the beach for your next destination.You are going to a museum. Just before you enteryou find a man in a ally that calls for you. What do you do?/Go to him/Go in the museum/rlrlrlr
+He tells you that that tour is super boringand you are going to have more funif you go with him.Do you go with him or go back to your group/Go with him/Head back/rlrlrlrl
+He takes you to a back door of acreepy looking building. There is a hugetable of scary looking men. Do you say hi or run/Say hi/Run!/rlrlrlrll
+Everyone invites you in for a partyand you have a great time in and you make it home safe./null/null/rlrlrlrlll
+You turn to run and the big man at the doorstabs and kills you./null/null/rlrlrlrllr
+Your group is gone and you are lostin a country you have never been before. Do you try and ask how toget back or wander around until you findyour group again?/Ask/Wander Around/rlrlrlrlr
+The people tell you to get on a busbut the bus drove of a clif and everyone dies./null/null/rlrlrlrlrl
+You get lost and fall asleep on theside of the road. There is a crazy flood and you drown/null/null/rlrlrlrlrr
+You actually die of boredom inside of the museum/null/null/rlrlrlrr
+You waste all of your time sitting in the hotel and you die of boredom/null/null/rlrlrr
+You must be here with you family.Come back when you are 18/null/null/rlrr
+You live in a huge mansion all by yourself.Do you invite people over for a party or read a book?/Party/Read/rr
+You invite people over for your partybut no one shows up and you dieof a broken heart./null/null/rrl
+You get so bored and you fall asleep.Your candle that you had lit falls and catcheson fire. You Die./null/null/rrr
