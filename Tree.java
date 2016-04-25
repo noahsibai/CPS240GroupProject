@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @author Noah Sibai, Logan Greer, Paul Lamine, Bradley Davis, Zachary C.
+ * @author Noah Sibai, Logan Greer, Paul Lamine, Bradley Davis, Zachary Casavant
  * @fileName Tree.java
  * @version 1.0
  */

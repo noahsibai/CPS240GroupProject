@@ -24,7 +24,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
- * @author Noah Sibai, Logan Greer, Paul Lamine, Bradley Davis, Zachary C.
+ * @author Noah Sibai, Logan Greer, Paul Lamine, Bradley Davis, Zachary Casavant
  * @fileName Main.java
  * @version 1.0
  */
@@ -47,7 +47,7 @@ public class Main extends Application {
 	static String filename = null;
 	Button exit = null;
 	TextField scoreText = new TextField();
-	File zackFile = new File("zack.txt");
+	File zackFile = new File("zackfile.txt");
 	File loganFile = new File("loganfile.txt");
 	File noahFile = new File("noahfile.txt");
 	File bradFile = new File("bradfile.txt");
@@ -351,7 +351,7 @@ public class Main extends Application {
 		try {
 			loadFile(file);
 		} catch (IOException ex) {
-			Logger.getLogger(FileChooserSample.class.getName()).log(Level.SEVERE, null, ex);
+			//Logger.getLogger(FileChooserSample.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
 
@@ -403,7 +403,7 @@ public class Main extends Application {
 	private void SaveFile(File f, String name, Point p, int i) throws IOException {
 		PrintWriter pw = new PrintWriter(f);
 		pw.print(name);
-		pw.print("," + ((int) p.getX()) + "," + ((int) p.getX()) + ",");
+		pw.print("," + ((int) p.getX()) + "," + ((int) p.getY()) + ",");
 		pw.print(i);
 		pw.close();
 	}
