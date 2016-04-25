@@ -29,93 +29,124 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	public static void main(String[] args) throws FileNotFoundException {
 		launch(args);
-
-//		File fil = new File("paul.txt");
-//		PrintWriter write = new PrintWriter(fil);
-
-//		add("root message", "right butt", "lButtont", "", write);
-//		write.close();
+	
+		
 		System.exit(0);
 	}
-
+	
 //	static PrintWriter write = new PrintWriter(f);
-	public static void add(String m, String rBut, String lBut, String pos, PrintWriter f) throws FileNotFoundException{
+	public static void add(String m, String lBut, String rBut, String pos, PrintWriter f) throws FileNotFoundException{
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
-
-		f.append( m + "/" + rBut + "/" + lBut + '/' + pos );  //Keep this
+		
+		if(m.equals("")){
+			return;
+		}
+		
+		if (pos.equals("") || pos.equals(" ")){
+			f.append( m + "/" + lBut + "/" + rBut + '/' + pos ); 
+		}
+		
+		f.append( "\n" +m + "/" + lBut + "/" + rBut + '/' + pos );  //Keep this
 									//Writes data to file, with delimiters
-
+//		if(lBut.equals("null")) return;
+		
 		String m2;
 		String rBut2;
 		String lBut2;
 		String newPos;
 							//turn these into textbox's
-		System.out.println("Added new message: " + m + "\n Right choice: " + rBut + "\n Left choice: " + lBut );
-		System.out.println("Enter L to add only left child, R to add only Right, or RL to add both");
-		String next = scan.nextLine();
-
-		if (next.equalsIgnoreCase("l")){
-			newPos = pos + 'l';
-
-			System.out.println(m + "Enter message after left choice " + lBut);
-			m2 = scan.nextLine();			//Turn these into TextBox's
-			//somthing like m2= textbox.getValue()
-			System.out.println("Enter Right Button");
+//		System.out.println("Added new message: " + m + "\n Right choice: " + rBut + "\n Left choice: " + lBut );
+//		System.out.println("Enter L to add after Left Choice, R to add off right , RL to add to both or anything else to add nothing");
+//		String next = scan.nextLine();
+//		
+//		if (next.equalsIgnoreCase("l")){
+//			//Create node for only left button
+//			newPos = pos + 'l';
+//			
+//			System.out.println(m + "\nEnter message after left choice: " + lBut);
+//			m2 = scan.nextLine();			//Turn these into TextBox's
+//											//somthing like m2= textbox.getValue()
+//			System.out.println("Enter Right Button (Enter Null for death)");
+//			rBut2 = scan.nextLine();
+//			System.out.println("Enter Left Button (Enter Null for death)");
+//			lBut2 = scan.nextLine();
+//					
+//			add(m2, rBut2, lBut2, newPos, f);		
+//		}
+//		
+//		if (next.equalsIgnoreCase("r")){
+//			//Create node for only right button			
+//			newPos = pos + 'r';
+//			
+//			System.out.println(m + "Enter message after right choice " + rBut);
+//			m2 = scan.nextLine();
+//			System.out.println("Enter Right Button (Enter Null for death)");
+//			rBut2 = scan.nextLine();
+//			System.out.println("Enter Left Button (Enter Null for death)");
+//			lBut2 = scan.nextLine();
+//			
+//			add(m2, rBut2, lBut2, newPos, f);		
+//		}
+		
+//		if (next.equalsIgnoreCase("lr")|| next.equalsIgnoreCase("rl")){
+			// Create node for Left button
+		
+			newPos = pos + 'l';  
+			System.out.println(m + "\n Enter Message after choice: " + lBut);
+			m2 = scan.nextLine();
+			
+			System.out.println("is this a death? (y/n)");
+			String death = scan.nextLine();
+			
+			if(death.equalsIgnoreCase("y")){
+				f.append( "\n" +m2 + "/" + "null" + "/" + "null" + '/' + newPos );
+//				add(m2, "null", "null", newPos, f);
+			}
+			else{
+			System.out.println("Enter Right Button (Enter Null for death)");
 			rBut2 = scan.nextLine();
-			System.out.println("Enter Left Button");
+			System.out.println("Enter Left Button (Enter Null for death)");
 			lBut2 = scan.nextLine();
-
-
-			add(m2, rBut2, lBut2, newPos, f);
-		}
-
-		if (next.equalsIgnoreCase("r")){
+			add(m2, lBut2, rBut2, newPos, f);	
+			}
+			
+			//Create node for right button
 			newPos = pos + 'r';
-
-			System.out.println(m + "Enter message after right choice " + rBut);
+			System.out.println(m + "\n Enter message after choice: " + rBut);
 			m2 = scan.nextLine();
-			System.out.println("Enter Right Button");
+			
+			System.out.println("is this a death? (y/n)");
+			death = scan.nextLine();
+			
+			if(death.equalsIgnoreCase("y")){
+				f.append( "\n" +m2 + "/" + "null" + "/" + "null" + '/' + newPos );
+			}
+			else{
+			System.out.println("Enter Right Button (Enter Null for death)");
 			rBut2 = scan.nextLine();
-			System.out.println("Enter Left Button");
+			System.out.println("Enter Left Button (Enter Null for death)");
 			lBut2 = scan.nextLine();
-
-			add(m2, rBut2, lBut2, newPos, f);
-		}
-
-		if (next.equalsIgnoreCase("lr") || next.equalsIgnoreCase("rl")){
-			newPos = pos + 'l';
-			System.out.println(m + " Enter Message after left choice " + lBut);
-			m2 = scan.nextLine();
-			System.out.println("is there a message : " + m2 + "");
-			System.out.println("Enter Right Button");
-			rBut2 = scan.nextLine();
-			System.out.println("Enter Left Button");
-			lBut2 = scan.nextLine();
-			add(m2, rBut2, lBut2, newPos, f);
-
-			newPos = pos + 'r';
-			System.out.println(m + "Enter message after right choice " + rBut);
-			m2 = scan.nextLine();
-			System.out.println("Enter Right Button");
-			rBut2 = scan.nextLine();
-			System.out.println("Enter Left Button");
-			lBut2 = scan.nextLine();
-			add(m2, rBut2, lBut2, newPos, f);
-
-		}else{
-//			write.close();
+			add(m2, lBut2, rBut2, newPos, f);		
+			}
+//		}else{
+//			System.out.println("Enter Death Message after: \n" + m  );
+			
+			
 			return;
-		}
-
+//		}
+		
 //		write.close();
-		return;
+//		return;
 	}
 
 	Pane pane = new Pane();
 	Button Logan = null;
 	Text startText = null;
 	Button restart = null;
+	
+	Button create = null;
+	
 	Button Noah = null;
 	Button Bradb = null;
 	Button Paul = null;
@@ -127,6 +158,8 @@ public class Main extends Application {
 	File zackFile = new File("zack.txt");
 	int count = 0;
 	Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+	
+	
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -140,7 +173,18 @@ public class Main extends Application {
 		enterName.setLayoutY((primaryScreenBounds.getWidth() / 2) - 150);
 		enterName.setScaleX(3);
 		enterName.setScaleY(3);
-		pane.getChildren().addAll(namePrompt, scoreText, enterName);
+		
+		create = new Button("Write your Own Adventure");
+		create.setLayoutX((primaryScreenBounds.getWidth() /3)+100);
+		create.setLayoutY(primaryScreenBounds.getHeight() / 4);
+		create.setScaleX(3);
+		create.setScaleY(3);
+		
+		createOwn newStory = new createOwn();
+		create.setOnAction(newStory);
+		
+		pane.getChildren().addAll(namePrompt, scoreText, enterName, create);
+		
 		enterName.setOnAction((ActionEvent e) -> {
 			name = scoreText.getText();
 			pane.getChildren().clear();
@@ -183,6 +227,9 @@ public class Main extends Application {
 			Zack.setLayoutY(primaryScreenBounds.getHeight() / 2);
 			Zack.setScaleX(3);
 			Zack.setScaleY(3);
+			
+			
+			
 			Logan logan = new Logan();
 			Logan.setOnAction(logan);
 			Noah noah = new Noah();
@@ -195,13 +242,93 @@ public class Main extends Application {
 			Zack.setOnAction(zack);
 			reset reset = new reset();
 			restart.setOnAction(reset);
+
+					
 			pane.getChildren().addAll(restart, startText, Zack, Paul, Bradb, Noah, Logan);
 		});
+		
 		Scene sc = new Scene(pane, primaryScreenBounds.getWidth(), primaryScreenBounds.getHeight());
 		stage.setTitle("Welcome to the Game");
 		stage.setScene(sc);
 		stage.setMaximized(true);
 		stage.show();
+	}
+	
+	class createOwn  implements EventHandler<ActionEvent> {
+		@Override
+		public void handle(ActionEvent arg0)  {
+			
+			pane.getChildren().clear();
+			
+			TextField nameField = new TextField();
+			Text fName = new Text("Name of Story");
+			
+			TextField message = new TextField();
+			Text mes = new Text("First message");
+			
+			TextField rButton = new TextField();
+			Text rBut = new Text("Choice 1");
+			
+			TextField lButton = new TextField();
+			Text lBut = new Text("Choice 2");
+			
+			Button submit = new Button("Create");
+			submit.setLayoutX((primaryScreenBounds.getWidth() /3));
+			submit.setLayoutY((primaryScreenBounds.getWidth() /3) + 100);
+			
+			
+			nameField.setLayoutX((primaryScreenBounds.getWidth() /3));
+			nameField.setLayoutY((primaryScreenBounds.getWidth() /3));
+			fName.setLayoutX((primaryScreenBounds.getWidth() /3) - 75);
+			fName.setLayoutY((primaryScreenBounds.getWidth() /3));
+			
+			message.setLayoutX((primaryScreenBounds.getWidth() /3));
+			message.setLayoutY((primaryScreenBounds.getWidth() /3)-100);
+			mes.setLayoutX((primaryScreenBounds.getWidth() /3)-65);
+			mes.setLayoutY((primaryScreenBounds.getWidth() /3)-100);
+						
+			rButton.setLayoutX((primaryScreenBounds.getWidth() / 3));
+			rButton.setLayoutY((primaryScreenBounds.getWidth() /3) - 200);
+			rBut.setLayoutX((primaryScreenBounds.getWidth() /3)-55);
+			rBut.setLayoutY((primaryScreenBounds.getWidth() /3)-200);
+			
+			lButton.setLayoutX((primaryScreenBounds.getWidth() / 3));
+			lButton.setLayoutY((primaryScreenBounds.getWidth() /3) -300);
+			lBut.setLayoutX((primaryScreenBounds.getWidth() /3)-55);
+			lBut.setLayoutY((primaryScreenBounds.getWidth() /3)-300);
+			
+//			Button
+			
+			pane.getChildren().addAll(nameField, message, rButton, lButton, fName, mes, rBut, lBut, submit);
+						
+//			Scanner scan = new Scanner(System.in);
+//			System.out.println("Enter the Name of your story");
+//			String fiName = scan.nextLine() + ".txt";
+//			System.out.println("Creating file in " + fiName);
+//			File f = new File(fiName);
+//			
+//			try {
+//				PrintWriter write = new PrintWriter(f);
+//				
+//				
+//				
+//				System.out.println("Enter The First message");
+//				String m = scan.nextLine();
+//				System.out.println("Enter the left Choice");
+//				String l = scan.nextLine();
+//				System.out.println("Enter the Right choice");
+//				String r = scan.nextLine();
+//				
+//				add(m, l, r, "", write);
+//				System.out.println("Story written");
+//				write.close();
+//
+//			} catch (FileNotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+				
+		}	
 	}
 
 	class reset implements EventHandler<ActionEvent> {
@@ -285,7 +412,7 @@ public class Main extends Application {
 			count = 0;
 			filename = "Story1Score.txt";
 			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
-
+			
 		}
 	}
 
@@ -307,7 +434,7 @@ public class Main extends Application {
 			count = 0;
 			filename = "Story4Score.txt";
 			pane.getChildren().removeAll(Logan, Noah, Paul, Bradb, Zack, startText);
-
+			
 			try{
 				File paulFile = new File("paul.txt");
 				Tree p = new Tree(paulFile);
@@ -315,7 +442,7 @@ public class Main extends Application {
 			}catch(FileNotFoundException e){
 				e.printStackTrace();
 			}
-
+			
 		}
 
 	}
@@ -334,11 +461,11 @@ public class Main extends Application {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-
+			
 		}
 
 	}
-
+	
 	class Noah implements EventHandler<ActionEvent> {
 
 		@Override
@@ -354,7 +481,7 @@ public class Main extends Application {
 		name = scoreText.getText();
 		scoreSheet(count, name, filename);
 	}
-
+	
 	class exit implements EventHandler<ActionEvent> {
 
 		@Override
@@ -436,7 +563,7 @@ public class Main extends Application {
 			pw.write(name + ", " + count + "\n");
 		} catch (Exception e1) {
 			e1.printStackTrace();
-
+			
 		}
 	}
 }
