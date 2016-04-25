@@ -1,73 +1,66 @@
+package groupProject;
+
+import java.awt.Point;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Tree {
 
-	Node root;
-
-	public Tree(String message, String choiceR, String choiceL, String pos) {
-		root = new Node(message, choiceR, choiceL, pos);
+	ArrayList<Node> root = new ArrayList<Node>();
+	Scanner s;
+	
+	public Tree(File f) throws FileNotFoundException {
+		s = new Scanner(f);
+		s.useDelimiter("/|\\n");
+		
+		while(s.hasNextLine()){
+			String message = s.next();
+			String choiceR = s.next();
+			String choiceL = s.next();
+			Point pos = convert(s.next());
+			root.add(new Node(message, choiceR, choiceL, pos));
+		}
+		s.close();
 	}
-
-	public void add(String message, String choiceR, String choiceL, String pos) {
-		Node NewNode = new Node(message, choiceR, choiceL, pos); // create new
-																	// node to
-																	// add
-		Node parent;
-
-		int len = pos.length();
-		if (len <= 1) {
-			parent = root;
-			if (pos == "r") {
-				parent.rChild = NewNode;
-			} else if (pos == "l") {
-				parent.lChild = NewNode;
-			} else {
-				System.out.println("Wrong Input");
-			}
-		} else {
-			parent = get(pos.substring(0, len - 1)); // find parent based on
-														// second to last r / l
-														// position
-					// System.out.println( "Adding: " + pos + "  to Parent: " + parent.pos);
-
-			if (pos.charAt(len - 1) == 'l' && parent.lChild == null) {
-				parent.lChild = NewNode;
-			} else if (pos.charAt(len - 1) == 'r' && parent.rChild == null) {
-				parent.rChild = NewNode;
-			} else {
-				System.out.println("Somthin screwed in add");
-
+	
+	public Node getNode(Point pos){
+		for(Node n: root){
+			if(n.equals(pos)){
+				return n;
 			}
 		}
+		return root.get(0);
 	}
-
-	public Node get(String pos) {
-
-		Node dad = root;
-		int i = 0; // incremented to move up position
-
-		while (true) {
-
-			try {
-				char p = pos.charAt(i); // traverse to left or right (r or l)
-				// throws StringIndexOutOfBoundsException when at correct Node
-
-				// System.out.println(p);
-				if (p == 'r' && dad.rChild != null) { // go to right if
-														// rightChild
-														// is not empty
-					dad = dad.rChild;
-					i++;
-				} else if (p == 'l' && dad.lChild != null) {
-					dad = dad.lChild;
-					i++;
-				} else {
-					// System.out.println("Found : " + dad);
-					return dad;
-				}
-			}
-
-			catch (StringIndexOutOfBoundsException ex) {
-				return dad;
-			}
-		}
+	
+	public Point convert(String s){
+		 int x = 0;
+		 int y = 0;
+		 
+		 if (s.length() == 1){
+			 if(s.equals("l")){
+				 x++;
+				 y+=y;
+			 }
+			 else if(s.equals("r")){
+				 x++;
+				 y+=y+1; 
+			 }
+		 }
+		 else if(s.length() > 1){
+			 for(int i = 0; i < s.length(); i++){
+				 if(s.charAt(i) == 'l'){
+					 x++;
+					 y+=y;
+				 }
+				 else if(s.charAt(i) == 'r'){
+					 x++;
+					 y+=y+1;
+				 }
+			 } 
+		 }
+		 
+		 return new Point(x,y);
 	}
 }
